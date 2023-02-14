@@ -19,7 +19,7 @@ user: User;
 course:Course;
 
 
-@Column()
+@Column('date')
 apply_date: Date;
 
 }

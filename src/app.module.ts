@@ -15,7 +15,7 @@ import User from './user.entity';
       password: '',
       database: 'course_db',
       entities: [
-        User, Course, AppliedUser
+        User,  AppliedUser, Course
       ],
       synchronize: true,
     }),

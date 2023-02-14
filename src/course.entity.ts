@@ -18,6 +18,20 @@ course_name:string;
 @Column()
 course_description:string;
 
+@Column()
+cover_photo: string;
+
+@Column()
+subject: string;
+
+@Column()
+topic:string;
+
+
+
+
+
+
 //További oszlopok elképzelve: video_url | image_url , a kurzusokhoz eltárolando video/ kép linkje (Szintugy nemtom)
 //                              Lesson, Nemtom...Tananyag leirva stringben vagy mi(?), még nincs ötletem hogy azt hogyan csináljuk meg.
 
