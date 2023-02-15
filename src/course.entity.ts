@@ -5,7 +5,6 @@ import AppliedUser from "./applied_user.entity";
 /**
  * A kurzus táblát jelképezi az adatbázisban
  */
-
 @Entity()
 export default class Course{
 
@@ -19,7 +18,7 @@ AppliedCourse: AppliedUser[];
 
 
 /**
- * A kurzus név, 
+ * A kurzus név
  */
 @Column()
 course_name:string;

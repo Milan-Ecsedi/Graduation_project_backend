@@ -5,7 +5,7 @@ import AppliedUser from "./applied_user.entity";
  * Felhasználó táblát jelöli az adatbázisban
  */
 @Entity()
-export default class User{
+export default class Users{
 
 @PrimaryGeneratedColumn()
 id:number;
