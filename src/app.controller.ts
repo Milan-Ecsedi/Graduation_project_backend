@@ -74,7 +74,7 @@ export class AppController {
     user.username=registerDto.username;
     user.email= registerDto.email;
     user.password= await bcrypt.hash(registerDto.password, 10)
-    UserRepo.save(registerDto);
+    UserRepo.save(user);
 
 
   }
