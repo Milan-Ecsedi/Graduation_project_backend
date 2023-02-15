@@ -38,11 +38,11 @@ export class AppController {
   }
 
   @Post('courses')
-  async NewCourse(@Body() registerCoursedto: RegisterCourseDto){
+  async NewCourse(@Body() registerCourseDto: RegisterCourseDto){
 
     const CourseRepo=this.dataSource.getRepository(Course);
    
-    if(!registerCoursedto.course_name|| !registerCoursedto.course_description || !registerCoursedto.subject || !registerCoursedto.topic)
+    if(!registerCourseDto.course_name|| !registerCourseDto.course_description || !registerCourseDto.subject || !registerCourseDto.topic)
    {
 
     throw new BadRequestException('Kötelező a nevet, leírást, tantárgyat, témát kitölteni')
@@ -50,13 +50,13 @@ export class AppController {
    }
 
    const course= new Course()
-   course.course_name= registerCoursedto.course_name
-   course.course_description= registerCoursedto.course_description
-   course.cover_photo= registerCoursedto.cover_photo
-   course.subject= registerCoursedto.subject
-   course.topic= registerCoursedto.topic
+   course.course_name= registerCourseDto.course_name
+   course.course_description= registerCourseDto.course_description
+   course.cover_photo= registerCourseDto.cover_photo
+   course.subject= registerCourseDto.subject
+   course.topic= registerCourseDto.topic
 
-  CourseRepo.save(registerCoursedto);
+  CourseRepo.save(registerCourseDto);
 
 
   }
@@ -73,7 +73,7 @@ export class AppController {
     const user= new Users()
     user.username=registerDto.username;
     user.email= registerDto.email;
-    user.password= await bcrypt.hash(registerDto.password, 15)
+    user.password= await bcrypt.hash(registerDto.password, 10)
     UserRepo.save(registerDto);
 
 
