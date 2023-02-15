@@ -23,6 +23,15 @@ export class AppController {
     return CourseRepo.find();
   }
 
+  @Post('courses')
+  NewCourse(@Body() course: Course){
+
+    course.id=undefined;
+    const CourseRepo=this.dataSource.getRepository(Course);
+    CourseRepo.save(course);
+
+
+  }
   
 
 

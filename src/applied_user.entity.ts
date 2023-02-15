@@ -11,6 +11,9 @@ export default class AppliedUser{
 @PrimaryGeneratedColumn()
 id:number;
 
+/**
+ * Összeköti a többi tábláával, lásd course.etity.ts-t és user.entity.ts-t
+ */
 @ManyToOne(() => User, (user) => user.applications)
 user: User;
 
@@ -19,6 +22,9 @@ user: User;
 course:Course;
 
 
+/**
+ * A felhasználó jelentezési dátuma
+ */
 @Column('date')
 apply_date: Date;
 
