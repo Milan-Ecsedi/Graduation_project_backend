@@ -2,7 +2,7 @@ import { Column, Entity, JoinColumn, OneToMany, OneToOne, PrimaryGeneratedColumn
 import AppliedUser from "./applied_user.entity";
 
 /**
- * Felhasználó táblát jelöli az adatbázisban
+ * Felhasználó táblát jelképezi az adatbázisban
  */
 @Entity()
 export default class Users{
