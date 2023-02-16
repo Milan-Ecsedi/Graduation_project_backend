@@ -7,6 +7,7 @@ import RegisterDto from './register.dto';
 import Users from './user.entity';
 import * as bcrypt from 'bcrypt';
 import RegisterCourseDto from './registerCourse.dto';
+import AppliedUser from './applied_user.entity';
 
 @Controller()
 export class AppController {
@@ -27,6 +28,15 @@ export class AppController {
     const courses=CourseRepo.find();
     return courses
   
+  }
+
+  @Get('courses/users/applied')
+  listAppliedUsers(){
+
+    const AppliedUserRepo = this.dataSource.getrepository(AppliedUser);
+    const applieduser=AppliedUserRepo.find();
+    return applieduser
+    
   }
 
   @Get('courses/users')
