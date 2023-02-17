@@ -9,11 +9,14 @@ import * as bcrypt from 'bcrypt';
 import RegisterCourseDto from './registerCourse.dto';
 import AppliedUser from './applied_user.entity';
 
+
 @Controller()
 export class AppController {
   constructor(
     private readonly appService: AppService,
+    
     private dataSource: DataSource,
+    
   ) {}
 
   @Get()
@@ -22,6 +25,10 @@ export class AppController {
     return {};
   }
   
+  /**
+   * Ki listázza a kurzusokat
+   * @returns courses(Course_name, description, cover_photo url, subject, topic) 
+   */
   @Get('courses')
    listCourses(){
     const CourseRepo =  this.dataSource.getRepository(Course);
@@ -33,7 +40,7 @@ export class AppController {
   @Get('courses/users/applied')
   listAppliedUsers(){
 
-    const AppliedUserRepo = this.dataSource.getrepository(AppliedUser);
+    const AppliedUserRepo = this.dataSource.getRepository(AppliedUser);
     const applieduser=AppliedUserRepo.find();
     return applieduser
     
@@ -46,7 +53,7 @@ export class AppController {
     return users
   
   }
-
+  
   @Post('courses')
   async NewCourse(@Body() registerCourseDto: RegisterCourseDto){
 
@@ -83,7 +90,8 @@ export class AppController {
     const user= new Users()
     user.username=registerDto.username;
     user.email= registerDto.email;
-    user.password= await bcrypt.hash(registerDto.password, 10)
+   // await bcrypt.hash(registerDto.password, 10)
+    user.password=await this.appService.getPW(registerDto.password);
     UserRepo.save(user);
 
 
