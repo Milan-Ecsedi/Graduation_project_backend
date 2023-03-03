@@ -1,11 +1,7 @@
-import { IsDefined, IsEmail, IsNotEmpty } from "class-validator";
+import { IsNotEmpty, IsEmail} from "class-validator";
 
-/**
- * Egy felhasználó regisztrálására alkalmas validáció osztály
- */
-export default class RegisterDto {
-  
-  /**
+export class CreateUserDto {
+    /**
    * név, nem lehet üres
    */
   @IsNotEmpty()
@@ -25,6 +21,4 @@ export default class RegisterDto {
   @IsEmail()
   email:string;
 
-
-  
 }

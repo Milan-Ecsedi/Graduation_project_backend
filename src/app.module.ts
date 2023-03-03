@@ -2,9 +2,14 @@ import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import AppliedUser from './applied_user.entity';
-import Course from './course.entity';
-import User from './user.entity';
+import { CourseModule } from './course/course.module';
+import { UserModule } from './user/user.module';
+import { AppliedUserModule } from './applied_user/applied_user.module';
+import User from './user/entities/user.entity';
+import Course from './course/entities/course.entity';
+import AppliedUser from './applied_user/entities/applied_user.entity';
+
+
 
 @Module({
   imports: [
@@ -16,10 +21,13 @@ import User from './user.entity';
       password: process.env.DB_PASSWORD || '',
       database: process.env.DB_DATABASE || 'database',
       entities: [
-        User,  AppliedUser, Course
+        User, Course, AppliedUser
       ],
       synchronize: true,
     }),
+    CourseModule,
+    UserModule,
+    AppliedUserModule,
   ],
   controllers: [AppController],
   providers: [AppService],

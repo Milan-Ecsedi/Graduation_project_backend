@@ -1,6 +1,7 @@
 import { application } from "express";
+import AppliedUser from "src/applied_user/entities/applied_user.entity";
+
 import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
-import AppliedUser from "./applied_user.entity";
 
 /**
  * A kurzus táblát jelképezi az adatbázisban
@@ -49,4 +50,3 @@ topic:string;
 
 
 }
-
