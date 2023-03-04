@@ -25,4 +25,7 @@ password:string;
 
 @Column()
 email: string;
+
+@Column()
+profile_pic: string;
 }

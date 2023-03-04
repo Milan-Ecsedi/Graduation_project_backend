@@ -7,23 +7,24 @@ import { UpdateCourseDto } from './dto/update-course.dto';
 @Injectable()
 export class CourseService {
 
- constructor(private dataSource:DataSource){}
- 
+  constructor(private dataSource: DataSource) { }
+
   async create(createCourseDto: CreateCourseDto) {
     const courseRepo = await this.dataSource.getRepository(Course)
-    const course= new Course() 
-    course.course_name=createCourseDto.course_name
-    course.course_description=createCourseDto.course_description
-    course.cover_photo=createCourseDto.cover_photo
-    course.subject=createCourseDto.subject
-    course.topic=createCourseDto.topic
+    const course = new Course()
+    course.course_name = createCourseDto.course_name
+    course.course_description = createCourseDto.course_description
+    course.cover_photo = createCourseDto.cover_photo
+    course.subject = createCourseDto.subject
+    course.topic = createCourseDto.topic
+    course.starting_date= createCourseDto.starting_date
     courseRepo.save(course)
-    
+
   }
 
   async findAll() {
-    const CourseRepo =this.dataSource.getRepository(Course);
-    const courses=CourseRepo.find();
+    const CourseRepo = this.dataSource.getRepository(Course);
+    const courses = CourseRepo.find();
     return courses
   }
 
@@ -36,8 +37,8 @@ export class CourseService {
   }
 
   async remove(id: number) {
-    const courseRepo= await this.dataSource.getRepository(Course)
+    const courseRepo = await this.dataSource.getRepository(Course)
     courseRepo.delete(id)
-    ;
+      ;
   }
 }

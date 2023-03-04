@@ -28,6 +28,7 @@ export class UserService {
     user.username=createUserDto.username
     user.email= createUserDto.email
     user.password=await this.appService.getPW(createUserDto.password)
+    user.profile_pic= 'https://www.freeiconspng.com/thumbs/profile-icon-png/am-a-19-year-old-multimedia-artist-student-from-manila--21.png'
     userRepo.save(user)
   }
 

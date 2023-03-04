@@ -21,4 +21,6 @@ export class CreateUserDto {
   @IsEmail()
   email:string;
 
+  profilePicture:string;
+
 }

@@ -30,6 +30,9 @@ export class CreateCourseDto {
  @IsNotEmpty()
  topic:string;
 
+ @IsNotEmpty()
+ starting_date: string;
+
 
 
 

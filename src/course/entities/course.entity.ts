@@ -48,5 +48,8 @@ subject: string;
 @Column()
 topic:string;
 
+@Column()
+starting_date: string;
+
 
 }
