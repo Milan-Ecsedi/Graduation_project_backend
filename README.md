@@ -10,17 +10,22 @@ For the course:
 ```bash
 # Creating a course
 http://localhost:3000/course/create
+
 # Listing the courses
 http://localhost:3000/course/list
+
 # Find one by id
 http://localhost:3000/course/search/:id
+
 # Delete by id
 http://localhost:3000/course/delete/:id
 ```
 For the users:
 ```bash
+
 # Registration
 http://localhost:3000/user/register
+
 # Listing the users
 http://localhost:3000/user/list
 
@@ -33,7 +38,7 @@ http://localhost:3000/user/update/:id
 # Delete by id
 http://localhost:3000/user/delete/:id
 ```
-
+We recommend you to use Thunder Client for checking the endpoints if you are using Visual Studio:Code
 # Nest things
 
 If you are not familiar with Nest.js, then see it down below.
