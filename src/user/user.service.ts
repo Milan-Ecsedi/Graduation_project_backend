@@ -5,6 +5,7 @@ import { UpdateUserDto } from './dto/update-user.dto';
 import * as bcrypt from 'bcrypt';
 import User from './entities/user.entity';
 import { AppService } from 'src/app.service';
+import { IsEmail, isEmail } from 'class-validator';
 
 @Injectable()
 export class UserService {
@@ -14,6 +15,11 @@ export class UserService {
   async create(createUserDto: CreateUserDto) {
    const userRepo= await this.dataSource.getRepository(User);
    const IsEmailUsed = await userRepo.findOne({ where: { email: createUserDto.email}})
+  const IsEmail= isEmail(createUserDto.email)
+    console.log(IsEmail)
+  /*if(IsEmail){
+    throw new BadRequestException('Nem megfelelő E-mail cím')
+  }*/
    if(IsEmailUsed)
    {
     throw new BadRequestException('Az E-mail már regisztrálva van')
@@ -40,7 +46,8 @@ export class UserService {
     return `This action updates a #${id} user`;
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} user`;
-  }
+  async remove(id: number) {
+    const userRepo= await this.dataSource.getRepository(User)
+    userRepo.delete(id)
+ }
 }

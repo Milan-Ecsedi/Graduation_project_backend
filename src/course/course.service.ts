@@ -35,7 +35,9 @@ export class CourseService {
     return `This action updates a #${id} course`;
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} course`;
+  async remove(id: number) {
+    const courseRepo= await this.dataSource.getRepository(Course)
+    courseRepo.delete(id)
+    ;
   }
 }
