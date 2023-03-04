@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Gép: 127.0.0.1
--- Létrehozás ideje: 2023. Már 04. 23:35
+-- Létrehozás ideje: 2023. Már 04. 23:42
 -- Kiszolgáló verziója: 10.4.25-MariaDB
 -- PHP verzió: 8.1.10
 
@@ -81,44 +81,10 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`id`, `username`, `password`, `email`, `profile_pic`) VALUES
 (1, 'kjdsfhfdjd', '$2b$10$RRlHsUsmIi7tOToxb0MHJ.V86U/HwmW24e2PW5lJEFl3sKjJSdkDm', 'kdfhshf@ugdsfuk.com', ''),
-(2, 'kjdsfhfdjd', '$2b$10$ybFGgRnkyW.ETcks3CZ17u4wth34SCTCosvV516cN6swEE.3XXlTi', 'kdfhshf@ugdsfuk.com', ''),
-(3, 'kjdsfhfdjd', '$2b$10$gM2gADHK9ZHoHJLRMx18DerPzh9Xu3QrMG7LF7wLJ3kxxJB8L8.SC', 'kdfhshf@ugdsfuk.com', ''),
 (4, 'malac', '$2b$10$YHO2NLw2HjnVZl96NC6aBu2m34GGzC3PDqe6Umhzxek4LoeutsOAm', 'malac@malac.hu', ''),
 (6, 'It is second malac', '$2b$10$cZCOrU0xnD/.K4DD5WqEhOMsblojn7yGYrpVVC06/BR.fdIagcwwG', 'nemmalac@gmail.hu', ''),
-(7, 'alma', '$2b$10$YQ6nslxefzHbRU5u4014a.KbAKS.VswAIdFfhmduCzBZc2ViExBN6', 'malac@malac.com', ''),
-(8, 'alma', '$2b$10$.bE/SwIA1tJ4AEp7Z.cmDOur7sUYNRWdsiIjyaxPvLWWXNUEHq8nS', 'alma@alma.com', '');
-
--- --------------------------------------------------------
-
---
--- Tábla szerkezet ehhez a táblához `users`
---
-
-CREATE TABLE `users` (
-  `id` int(11) NOT NULL,
-  `username` varchar(255) COLLATE utf8mb4_hungarian_ci NOT NULL,
-  `password` varchar(255) COLLATE utf8mb4_hungarian_ci NOT NULL,
-  `email` varchar(255) COLLATE utf8mb4_hungarian_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_hungarian_ci;
-
---
--- A tábla adatainak kiíratása `users`
---
-
-INSERT INTO `users` (`id`, `username`, `password`, `email`) VALUES
-(5, 'Noxusi Katarina', 'GarenXKata', 'katarina420@noxus.com'),
-(10, 'code tester6', '$2b$10$Ro4T4qKCmAHRBPnenYbap.mqDviXY/fcqfctann5I7O1SKPVHom8a', 'example@example.com'),
-(11, 'Example User', '$2b$10$i2jq62KXpZwrnuqb6Iw/POkkOtDf7C3fE3q5/tpsUj3Zqcg6ZTUTy', 'example@example.com'),
-(12, 'dvajklgj', '$2b$10$cvQjLL8gR54GrsYDtcle.uArFA5OD6Xd2sOC/R2cp8DKxmR4wbZe2', 'test@user.com'),
-(13, 'dvajklgj', '$2b$10$vOlnOnGv8tRyuwq6vVLMJe9TnGbUsmp2feZC6WsZHxAN4BXonAnxK', 'test@user.com'),
-(14, 'dvajklgj', '', 'test@user.com'),
-(15, 'dvajklgj', '', 'test@user.com'),
-(16, 'dvajklgj', '', 'test@user.com'),
-(17, 'FrontendUser', '$2b$10$pnGiZXm5.p.aA3dIC8f4xuKKz/DokKpm6ku5cKwoCIRRs8bSrWdua', 'frontend@gmail.com'),
-(19, 'MessageTestUser', '$2b$10$YaR8oXNslkFT/fGoUDrr3Oh2O1aPY/9UeB5Otf3FqUtHQRtf90Yb2', 'example@example.com'),
-(20, 'ajskdhjakj', '$2b$10$AiITEjOB6RarfKth368Rke8K7jN300r6uuwsZmzPF2BVeAQ0Mmf3O', 'asdkh@gmail.com'),
-(21, 'NotAGuestUser', '$2b$10$EzzG52s2xK1//kraTL0W7eFoKOftfL.ONZj.Xo4J7O/Z1klpk2xYC', 'notaguest@gmail.com'),
-(22, 'TestUserDani', '$2b$10$IRADULqD4ex/8UkcCiWSGOTqt2BPgJ5OsAsNZWZragVVN5kp4.J.u', 'dani@gmail.com');
+(8, 'alma', '$2b$10$.bE/SwIA1tJ4AEp7Z.cmDOur7sUYNRWdsiIjyaxPvLWWXNUEHq8nS', 'alma@alma.com', ''),
+(9, 'It is second malac', '$2b$10$.o0aEAA9.tBJhvhoHa7NE.MgTTisGGS86R9DTEec8sb5uotwNqdN6', 'withprofilepic@test.com', 'https://www.freeiconspng.com/thumbs/profile-icon-png/am-a-19-year-old-multimedia-artist-student-from-manila--21.png');
 
 --
 -- Indexek a kiírt táblákhoz
@@ -145,12 +111,6 @@ ALTER TABLE `user`
   ADD PRIMARY KEY (`id`);
 
 --
--- A tábla indexei `users`
---
-ALTER TABLE `users`
-  ADD PRIMARY KEY (`id`);
-
---
 -- A kiírt táblák AUTO_INCREMENT értéke
 --
 
@@ -170,13 +130,7 @@ ALTER TABLE `course`
 -- AUTO_INCREMENT a táblához `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
-
---
--- AUTO_INCREMENT a táblához `users`
---
-ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- Megkötések a kiírt táblákhoz
