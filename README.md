@@ -1,3 +1,34 @@
+# What our backend can do
+
+It is our backend which connected to our graduation projects.
+This backend able for the CRUD operations.
+See the endpoints down below.
+
+## Endpoints
+
+For the course:
+
+### http://localhost:3000/course/create
+### http://localhost:3000/course/list
+### http://localhost:3000/course/search/:id
+### http://localhost:3000/course/delete/:id
+
+For the users:
+
+### http://localhost:3000/user/register
+### http://localhost:3000/user/list
+### http://localhost:3000/user/search/:id
+### http://localhost:3000/user/update/:id
+### http://localhost:3000/user/delete/:id
+
+
+# Nest things
+
+If you are  not familiar with Nest.js, then see down below.
+
+
+
+
 <p align="center">
   <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
 </p>
