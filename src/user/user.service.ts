@@ -13,10 +13,10 @@ export class UserService {
     private readonly appService: AppService,){}
   async create(createUserDto: CreateUserDto) {
    const userRepo= await this.dataSource.getRepository(User);
-   const emailUsed=  userRepo.findOne({where:{email: createUserDto.email}})
-   if(emailUsed)
+   const IsEmailUsed = await userRepo.findOne({ where: { email: createUserDto.email}})
+   if(IsEmailUsed)
    {
-    throw new BadRequestException('Ez az e-mail már regisztrálva van!')
+    throw new BadRequestException('Az E-mail már regisztrálva van')
    }
     const user= new User()
     user.username=createUserDto.username
