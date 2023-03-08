@@ -49,7 +49,14 @@ subject: string;
 topic:string;
 
 @Column()
-starting_date: string;
+details: string;
+
+@Column()
+file_url: string;
+
+@Column()
+deadline: string;
+
 
 
 }

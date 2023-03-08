@@ -1,4 +1,4 @@
-import { IsNotEmpty, IsOptional } from "class-validator";
+import { IsNotEmpty, IsOptional, IsUrl } from "class-validator";
 
 /**
  * Egy kurzus regisztrálására alkalmas validáció osztály
@@ -20,7 +20,8 @@ export class CreateCourseDto {
  /**
   * Borito kép, opcionális
   */
- @IsOptional()
+ 
+ 
  cover_photo:string;
 
 
@@ -30,8 +31,15 @@ export class CreateCourseDto {
  @IsNotEmpty()
  topic:string;
 
+ @IsOptional()
+ details: string;
+
  @IsNotEmpty()
- starting_date: string;
+ @IsUrl()
+ file_url: string;
+
+ @IsNotEmpty()
+ deadline: string;
 
 
 

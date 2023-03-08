@@ -17,7 +17,9 @@ export class CourseService {
     course.cover_photo = createCourseDto.cover_photo
     course.subject = createCourseDto.subject
     course.topic = createCourseDto.topic
-    course.starting_date= createCourseDto.starting_date
+    course.deadline= createCourseDto.deadline
+    course.details=createCourseDto.details
+    course.file_url=createCourseDto.file_url
     courseRepo.save(course)
 
   }
@@ -29,7 +31,9 @@ export class CourseService {
   }
 
   findOne(id: number) {
-    return `This action returns a #${id} course`;
+  const CourseRepo=this.dataSource.getRepository(Course);
+  const course= CourseRepo.find({where:{id:id}})
+    return course;
   }
 
   update(id: number, updateCourseDto: UpdateCourseDto) {

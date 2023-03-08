@@ -1,4 +1,4 @@
-import { IsNotEmpty, IsEmail} from "class-validator";
+import { IsNotEmpty, IsEmail, IsUrl} from "class-validator";
 
 export class CreateUserDto {
     /**
@@ -21,6 +21,7 @@ export class CreateUserDto {
   @IsEmail()
   email:string;
 
+  
   profilePicture:string;
 
 }
