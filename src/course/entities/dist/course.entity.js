@@ -36,7 +36,7 @@ var Course = /** @class */ (function () {
         typeorm_1.Column()
     ], Course.prototype, "topic");
     __decorate([
-        typeorm_1.Column()
+        typeorm_1.Column('longtext')
     ], Course.prototype, "details");
     __decorate([
         typeorm_1.Column()

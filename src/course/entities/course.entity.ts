@@ -48,7 +48,7 @@ subject: string;
 @Column()
 topic:string;
 
-@Column()
+@Column('longtext')
 details: string;
 
 @Column()
