@@ -42,9 +42,9 @@ CREATE TABLE `applied_user` (
 
 CREATE TABLE `course` (
   `id` int(11) NOT NULL,
-  `course_name` varchar(255) COLLATE utf8mb4_hungarian_ci NOT NULL,
-  `course_description` varchar(255) COLLATE utf8mb4_hungarian_ci NOT NULL,
-  `cover_photo` varchar(255) COLLATE utf8mb4_hungarian_ci NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_hungarian_ci NOT NULL,
+  `description` varchar(255) COLLATE utf8mb4_hungarian_ci NOT NULL,
+  `cphoto` varchar(255) COLLATE utf8mb4_hungarian_ci NOT NULL,
   `subject` varchar(255) COLLATE utf8mb4_hungarian_ci NOT NULL,
   `topic` varchar(255) COLLATE utf8mb4_hungarian_ci NOT NULL,
   `starting_date` varchar(255) COLLATE utf8mb4_hungarian_ci NOT NULL
@@ -54,7 +54,7 @@ CREATE TABLE `course` (
 -- A tábla adatainak kiíratása `course`
 --
 
-INSERT INTO `course` (`id`, `course_name`, `course_description`, `cover_photo`, `subject`, `topic`, `starting_date`) VALUES
+INSERT INTO `course` (`id`, `name`, `description`, `cphoto`, `subject`, `topic`, `starting_date`) VALUES
 (1, 'Általános iskolai ismeretek(4. osztály)', 'A kurzus tartalmazza az alap matematikai ismereteket, általános iskolai diákoknak', 'https://i.pinimg.com/originals/8f/54/2d/8f542db87fb0aa365e524c88ba251baf.png', 'Matematika', 'Szorzások, osztások', '2023.08.22'),
 (5, 'Informatika OOP alapok', 'A kurzuson megtanítjuk az alopokat az objektum orientált programozáshoz java-ban', 'https://i.pinimg.com/736x/32/e3/6f/32e36fd1d2ad4e7a4edaaec1567cacbf.jpg', 'Informatika', 'OOP, JAVA', '2023.12.01'),
 (6, 'Adatbázis kezelés', 'A kurzuson megtanítjuk az alopokat az objektum orientált programozáshoz java-ban', 'https://img.freepik.com/free-photo/online-communication_1098-15842.jpg', 'Informatika', 'MySQL', '2023.05.11'),
