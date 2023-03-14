@@ -3,11 +3,9 @@ import * as bcrypt from 'bcrypt';
 
 @Injectable()
 export class AppService {
-   async getPW(pw) : Promise<string>{
+  async getPW(pw): Promise<string> {
+    const password = bcrypt.hash(pw, 10);
 
-    const password= bcrypt.hash(pw , 10) 
-
-    return password
+    return password;
   }
-
 }
