@@ -5,6 +5,9 @@ import { AppService } from './app.service';
 import { CourseModule } from './course/course.module';
 import { UserModule } from './user/user.module';
 import { AppliedUserModule } from './applied_user/applied_user.module';
+import { AuthModule } from './auth/auth.module';
+
+
 import User from './user/entities/user.entity';
 import Course from './course/entities/course.entity';
 import AppliedUser from './applied_user/entities/applied_user.entity';
@@ -28,6 +31,8 @@ import AppliedUser from './applied_user/entities/applied_user.entity';
     CourseModule,
     UserModule,
     AppliedUserModule,
+    AuthModule,
+    
   ],
   controllers: [AppController],
   providers: [AppService],
