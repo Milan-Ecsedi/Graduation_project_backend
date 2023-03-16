@@ -14,9 +14,11 @@ var app_service_1 = require("./app.service");
 var course_module_1 = require("./course/course.module");
 var user_module_1 = require("./user/user.module");
 var applied_user_module_1 = require("./applied_user/applied_user.module");
+var auth_module_1 = require("./auth/auth.module");
 var user_entity_1 = require("./user/entities/user.entity");
 var course_entity_1 = require("./course/entities/course.entity");
 var applied_user_entity_1 = require("./applied_user/entities/applied_user.entity");
+var token_entity_1 = require("./auth/token.entity");
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
@@ -30,14 +32,13 @@ var AppModule = /** @class */ (function () {
                     username: process.env.DB_USERNAME || 'root',
                     password: process.env.DB_PASSWORD || '',
                     database: process.env.DB_DATABASE || 'database',
-                    entities: [
-                        user_entity_1["default"], course_entity_1["default"], applied_user_entity_1["default"]
-                    ],
+                    entities: [user_entity_1["default"], course_entity_1["default"], applied_user_entity_1["default"], token_entity_1["default"]],
                     synchronize: true
                 }),
                 course_module_1.CourseModule,
                 user_module_1.UserModule,
                 applied_user_module_1.AppliedUserModule,
+                auth_module_1.AuthModule,
             ],
             controllers: [app_controller_1.AppController],
             providers: [app_service_1.AppService]

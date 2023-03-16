@@ -11,6 +11,7 @@ import { AuthModule } from './auth/auth.module';
 import User from './user/entities/user.entity';
 import Course from './course/entities/course.entity';
 import AppliedUser from './applied_user/entities/applied_user.entity';
+import Token from './auth/token.entity';
 
 @Module({
   imports: [
@@ -21,14 +22,13 @@ import AppliedUser from './applied_user/entities/applied_user.entity';
       username: process.env.DB_USERNAME || 'root',
       password: process.env.DB_PASSWORD || '',
       database: process.env.DB_DATABASE || 'database',
-      entities: [User, Course, AppliedUser],
+      entities: [User, Course, AppliedUser, Token],
       synchronize: true,
     }),
     CourseModule,
     UserModule,
     AppliedUserModule,
     AuthModule,
-    
   ],
   controllers: [AppController],
   providers: [AppService],
