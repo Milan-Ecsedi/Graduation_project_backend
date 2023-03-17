@@ -1,5 +1,5 @@
 import User from "src/user/entities/user.entity";
-import { Entity, ManyToMany, ManyToOne, PrimaryColumn } from "typeorm";
+import { Entity,  ManyToOne, PrimaryColumn } from "typeorm";
 
 @Entity()
 export default class Token{

@@ -50,4 +50,10 @@ export class UserService {
     const userRepo= await this.dataSource.getRepository(User)
     userRepo.delete(id)
  }
+
+  async getProfile(req){
+
+    return req.user
+  }
+
 }

@@ -31,6 +31,9 @@ var UserController = /** @class */ (function () {
     UserController.prototype.remove = function (id) {
         return this.userService.remove(+id);
     };
+    UserController.prototype.findProfile = function (req) {
+        return this.userService.getProfile(req);
+    };
     __decorate([
         common_1.Post('register'),
         __param(0, common_1.Body())
@@ -52,6 +55,11 @@ var UserController = /** @class */ (function () {
         common_1.Delete('delete/:id'),
         __param(0, common_1.Param('id'))
     ], UserController.prototype, "remove");
+    __decorate([
+        common_1.UseGuards(passport_1.AuthGuard('bearer')),
+        common_1.Get('profile'),
+        __param(0, common_1.Request())
+    ], UserController.prototype, "findProfile");
     UserController = __decorate([
         common_1.Controller('user')
     ], UserController);
