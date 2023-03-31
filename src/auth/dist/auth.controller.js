@@ -46,6 +46,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 };
 exports.__esModule = true;
 exports.AuthController = void 0;
+/* eslint-disable prettier/prettier */
 var common_1 = require("@nestjs/common");
 var user_entity_1 = require("src/user/entities/user.entity");
 var bcrypt = require("bcrypt");

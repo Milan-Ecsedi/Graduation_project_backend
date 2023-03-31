@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { BadRequestException, Injectable } from '@nestjs/common';
 import Course from './entities/course.entity';
 import { DataSource } from 'typeorm';
 import { CreateCourseDto } from './dto/create-course.dto';
@@ -16,9 +16,9 @@ export class CourseService {
     course.cphoto = createCourseDto.cphoto;
     course.subject = createCourseDto.subject;
     course.topic = createCourseDto.topic;
-    course.deadline = createCourseDto.deadline;
-    course.details = createCourseDto.details;
-    course.file_url = createCourseDto.file_url;
+    // course.deadline = createCourseDto.deadline;
+    // course.details = createCourseDto.details;
+    // course.file_url = createCourseDto.file_url;
     courseRepo.save(course);
   }
 
@@ -34,8 +34,22 @@ export class CourseService {
     return course;
   }
 
-  update(id: number, updateCourseDto: UpdateCourseDto) {
-    return `This action updates a #${id} course`;
+  async update(id: number, updateCourseDto: UpdateCourseDto) {
+    const courseRepo = this.dataSource.getRepository(Course);
+    if (!(await courseRepo.findOneBy({ id: id }))) {
+      throw new BadRequestException('Ilyen id-val nem található ');
+    }
+    const courseToUpdate = await courseRepo.findOneBy({ id });
+    if (updateCourseDto.name == null) {
+      throw new BadRequestException('A kéréshez nem társult semilyen adat');
+    }
+    courseToUpdate.name = updateCourseDto.name;
+    courseToUpdate.description = updateCourseDto.description;
+    courseToUpdate.cphoto = updateCourseDto.cphoto;
+    courseToUpdate.topic = updateCourseDto.topic;
+    courseToUpdate.subject = updateCourseDto.subject;
+
+    courseRepo.save(courseToUpdate);
   }
 
   async remove(id: number) {
