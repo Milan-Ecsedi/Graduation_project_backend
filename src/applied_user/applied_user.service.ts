@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { BadRequestException, Injectable } from '@nestjs/common';
 import Course from 'src/course/entities/course.entity';
 import User from 'src/user/entities/user.entity';
 import { DataSource } from 'typeorm';
@@ -10,13 +10,23 @@ import AppliedUser from './entities/applied_user.entity';
 export class AppliedUserService {
   constructor(private dataSource: DataSource) {}
 
-  create(user : User) {
-    
+  async create(user : User, id:number) {
+
+    const courseRepo= this.dataSource.getRepository(Course)
+
+
+    const course= await courseRepo.findOne({ where: {id:id}})
+    console.log(course)
+    if(course===null){
+      throw new BadRequestException({message:'A kurzusra nem lehet jelentkezni'})
+    }
+
+
     const appliedRepo= this.dataSource.getRepository(AppliedUser)
     const appliedUser= new AppliedUser
-    appliedUser.user= user;
-    console.log(user)
-    // appliedRepo.save(appliedUser);
+    appliedUser.user= user
+    appliedUser.course= course
+    appliedRepo.save(appliedUser);
   }
 
   findAll() {

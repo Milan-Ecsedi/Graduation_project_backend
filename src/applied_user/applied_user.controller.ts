@@ -10,8 +10,8 @@ export class AppliedUserController {
   
   @UseGuards(AuthGuard('bearer'))
   @Post()
-  create(@Request() req) {
-    return this.appliedUserService.create(req.user);
+  create(@Request() req, @Body() id) {
+    return this.appliedUserService.create(req.user, id);
   }
 
   @Get()

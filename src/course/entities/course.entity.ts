@@ -11,7 +11,7 @@ export default class Course {
   @PrimaryGeneratedColumn()
   id: number;
   /**
-   * összeköti az id-t a course id-val az applied course-ban
+   * összeköti az id-t a courseId-val az appliedUser-ben
    */
   @OneToMany(() => AppliedUser, (appliedUser) => appliedUser.course)
   AppliedCourse: AppliedUser[];

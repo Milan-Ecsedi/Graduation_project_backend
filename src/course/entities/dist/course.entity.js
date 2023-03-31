@@ -22,13 +22,13 @@ var Course = /** @class */ (function () {
     ], Course.prototype, "AppliedCourse");
     __decorate([
         typeorm_1.Column()
-    ], Course.prototype, "course_name");
+    ], Course.prototype, "name");
     __decorate([
         typeorm_1.Column()
-    ], Course.prototype, "course_description");
+    ], Course.prototype, "description");
     __decorate([
         typeorm_1.Column()
-    ], Course.prototype, "cover_photo");
+    ], Course.prototype, "cphoto");
     __decorate([
         typeorm_1.Column()
     ], Course.prototype, "subject");
