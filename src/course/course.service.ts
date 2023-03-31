@@ -37,7 +37,7 @@ export class CourseService {
   async update(id: number, updateCourseDto: UpdateCourseDto) {
     const courseRepo = this.dataSource.getRepository(Course);
     if (!(await courseRepo.findOneBy({ id: id }))) {
-      throw new BadRequestException('Ilyen id-val nem található ');
+      throw new BadRequestException('Ilyen id-val nem található kurzus');
     }
     const courseToUpdate = await courseRepo.findOneBy({ id });
     if (updateCourseDto.name == null) {
