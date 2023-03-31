@@ -28,13 +28,13 @@ export class CreateCourseDto {
   @IsNotEmpty()
   topic: string;
 
-  // @IsOptional()
-  // details: string;
+   @IsOptional()
+   details: string;
 
-  // @IsNotEmpty()
-  // @IsUrl()
-  // file_url: string;
+   @IsNotEmpty()
+   @IsUrl()
+   file_url: string;
 
-  // @IsNotEmpty()
-  // deadline: string;
+   @IsNotEmpty()
+   deadline: string;
 }

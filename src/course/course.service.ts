@@ -16,9 +16,9 @@ export class CourseService {
     course.cphoto = createCourseDto.cphoto;
     course.subject = createCourseDto.subject;
     course.topic = createCourseDto.topic;
-    // course.deadline = createCourseDto.deadline;
-    // course.details = createCourseDto.details;
-    // course.file_url = createCourseDto.file_url;
+    course.deadline = createCourseDto.deadline;
+    course.details = createCourseDto.details;
+    course.file_url = createCourseDto.file_url;
     courseRepo.save(course);
   }
 

@@ -14,13 +14,13 @@ export class UserController {
   }
 
   @Get('list')
-  // @UseGuards(AuthGuard('bearer'))
+  @UseGuards(AuthGuard('bearer'))
   findAll() {
     return this.userService.findAll();
   }
 
   @Get('search/:id')
-  // @UseGuards(AuthGuard('bearer'))
+  @UseGuards(AuthGuard('bearer'))
   findOne(@Param('id') id: string) {
     return this.userService.findOne(+id);
   }
@@ -35,7 +35,7 @@ export class UserController {
     return this.userService.remove(+id);
   }
 
-  // @UseGuards(AuthGuard('bearer'))
+  @UseGuards(AuthGuard('bearer'))
   @Get('profile')
   findProfile(@Request() req){
     return this.userService.getProfile(req)

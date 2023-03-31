@@ -8,11 +8,17 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 exports.__esModule = true;
 exports.AppliedUserService = void 0;
 var common_1 = require("@nestjs/common");
+var applied_user_entity_1 = require("./entities/applied_user.entity");
 var AppliedUserService = /** @class */ (function () {
-    function AppliedUserService() {
+    function AppliedUserService(dataSource) {
+        this.dataSource = dataSource;
     }
-    AppliedUserService.prototype.create = function (createAppliedUserDto, user, course) {
-        return;
+    AppliedUserService.prototype.create = function (user) {
+        var appliedRepo = this.dataSource.getRepository(applied_user_entity_1["default"]);
+        var appliedUser = new applied_user_entity_1["default"];
+        appliedUser.user = user;
+        console.log(user);
+        // appliedRepo.save(appliedUser);
     };
     AppliedUserService.prototype.findAll = function () {
         return "This action returns all appliedUser";

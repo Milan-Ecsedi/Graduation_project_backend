@@ -16,8 +16,8 @@ var AppliedUserController = /** @class */ (function () {
     function AppliedUserController(appliedUserService) {
         this.appliedUserService = appliedUserService;
     }
-    AppliedUserController.prototype.create = function (createAppliedUserDto, req) {
-        return this.appliedUserService.create(createAppliedUserDto, req.user, req.course);
+    AppliedUserController.prototype.create = function (req) {
+        return this.appliedUserService.create(req.user);
     };
     AppliedUserController.prototype.findAll = function () {
         return this.appliedUserService.findAll();
@@ -34,7 +34,7 @@ var AppliedUserController = /** @class */ (function () {
     __decorate([
         common_1.UseGuards(passport_1.AuthGuard('bearer')),
         common_1.Post(),
-        __param(0, common_1.Body()), __param(1, common_1.Request())
+        __param(0, common_1.Request())
     ], AppliedUserController.prototype, "create");
     __decorate([
         common_1.Get()

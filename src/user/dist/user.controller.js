@@ -11,6 +11,7 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
 exports.__esModule = true;
 exports.UserController = void 0;
 var common_1 = require("@nestjs/common");
+var passport_1 = require("@nestjs/passport");
 var UserController = /** @class */ (function () {
     function UserController(userService) {
         this.userService = userService;
@@ -18,11 +19,9 @@ var UserController = /** @class */ (function () {
     UserController.prototype.create = function (createUserDto) {
         return this.userService.create(createUserDto);
     };
-    // @UseGuards(AuthGuard('bearer'))
     UserController.prototype.findAll = function () {
         return this.userService.findAll();
     };
-    // @UseGuards(AuthGuard('bearer'))
     UserController.prototype.findOne = function (id) {
         return this.userService.findOne(+id);
     };
@@ -32,7 +31,6 @@ var UserController = /** @class */ (function () {
     UserController.prototype.remove = function (id) {
         return this.userService.remove(+id);
     };
-    // @UseGuards(AuthGuard('bearer'))
     UserController.prototype.findProfile = function (req) {
         return this.userService.getProfile(req);
     };
@@ -41,10 +39,12 @@ var UserController = /** @class */ (function () {
         __param(0, common_1.Body())
     ], UserController.prototype, "create");
     __decorate([
-        common_1.Get('list')
+        common_1.Get('list'),
+        common_1.UseGuards(passport_1.AuthGuard('bearer'))
     ], UserController.prototype, "findAll");
     __decorate([
         common_1.Get('search/:id'),
+        common_1.UseGuards(passport_1.AuthGuard('bearer')),
         __param(0, common_1.Param('id'))
     ], UserController.prototype, "findOne");
     __decorate([
@@ -56,6 +56,7 @@ var UserController = /** @class */ (function () {
         __param(0, common_1.Param('id'))
     ], UserController.prototype, "remove");
     __decorate([
+        common_1.UseGuards(passport_1.AuthGuard('bearer')),
         common_1.Get('profile'),
         __param(0, common_1.Request())
     ], UserController.prototype, "findProfile");

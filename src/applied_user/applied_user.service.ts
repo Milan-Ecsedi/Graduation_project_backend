@@ -1,16 +1,22 @@
 import { Injectable } from '@nestjs/common';
 import Course from 'src/course/entities/course.entity';
 import User from 'src/user/entities/user.entity';
+import { DataSource } from 'typeorm';
 import { CreateAppliedUserDto } from './dto/create-applied_user.dto';
 import { UpdateAppliedUserDto } from './dto/update-applied_user.dto';
+import AppliedUser from './entities/applied_user.entity';
 
 @Injectable()
 export class AppliedUserService {
-  create(createAppliedUserDto: CreateAppliedUserDto, user : User, course: Course) {
-    
-    
+  constructor(private dataSource: DataSource) {}
 
-    return ;
+  create(user : User) {
+    
+    const appliedRepo= this.dataSource.getRepository(AppliedUser)
+    const appliedUser= new AppliedUser
+    appliedUser.user= user;
+    console.log(user)
+    // appliedRepo.save(appliedUser);
   }
 
   findAll() {

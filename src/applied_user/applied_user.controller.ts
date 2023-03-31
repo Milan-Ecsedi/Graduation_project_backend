@@ -7,10 +7,11 @@ import { UpdateAppliedUserDto } from './dto/update-applied_user.dto';
 @Controller('applied-user')
 export class AppliedUserController {
   constructor(private readonly appliedUserService: AppliedUserService) {}
+  
   @UseGuards(AuthGuard('bearer'))
   @Post()
-  create(@Body() createAppliedUserDto: CreateAppliedUserDto , @Request() req) {
-    return this.appliedUserService.create(createAppliedUserDto, req.user, req.course);
+  create(@Request() req) {
+    return this.appliedUserService.create(req.user);
   }
 
   @Get()
