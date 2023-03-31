@@ -16,9 +16,9 @@ export class CourseService {
     course.cphoto = createCourseDto.cphoto;
     course.subject = createCourseDto.subject;
     course.topic = createCourseDto.topic;
-    // course.deadline = createCourseDto.deadline;
-    // course.details = createCourseDto.details;
-    // course.file_url = createCourseDto.file_url;
+    course.deadline = createCourseDto.deadline;
+    course.details = createCourseDto.details;
+    course.file_url = createCourseDto.file_url;
     courseRepo.save(course);
   }
 
@@ -37,7 +37,7 @@ export class CourseService {
   async update(id: number, updateCourseDto: UpdateCourseDto) {
     const courseRepo = this.dataSource.getRepository(Course);
     if (!(await courseRepo.findOneBy({ id: id }))) {
-      throw new BadRequestException('Ilyen id-val nem található ');
+      throw new BadRequestException('Ilyen id-val nem található kurzus');
     }
     const courseToUpdate = await courseRepo.findOneBy({ id });
     if (updateCourseDto.name == null) {
