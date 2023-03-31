@@ -32,6 +32,7 @@ var UserController = /** @class */ (function () {
         return this.userService.remove(+id);
     };
     UserController.prototype.findProfile = function (req) {
+        console.log(req.user);
         return this.userService.getProfile(req);
     };
     __decorate([

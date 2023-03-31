@@ -11,6 +11,8 @@ export class UserService {
 
   constructor(private dataSource:DataSource,
     private readonly appService: AppService,){}
+
+    
   async create(createUserDto: CreateUserDto) {
    const userRepo= await this.dataSource.getRepository(User);
    const IsEmailUsed = await userRepo.findOne({ where: { email: createUserDto.email}})
@@ -52,7 +54,6 @@ export class UserService {
  }
 
   async getProfile(req){
-
     return req.user
   }
 

@@ -10,7 +10,7 @@ export class AuthController {
     constructor(
         private dataSource:DataSource,
         private authService:AuthService,
-    ){}
+){}
 
     @Post('login')
     async login(@Body() loginData:LoginDto){

@@ -38,6 +38,7 @@ export class UserController {
   @UseGuards(AuthGuard('bearer'))
   @Get('profile')
   findProfile(@Request() req){
+    console.log(req.user);
     return this.userService.getProfile(req)
   }
 }
