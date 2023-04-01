@@ -50,6 +50,7 @@ exports.AuthController = void 0;
 var common_1 = require("@nestjs/common");
 var user_entity_1 = require("src/user/entities/user.entity");
 var bcrypt = require("bcrypt");
+var passport_1 = require("@nestjs/passport");
 var AuthController = /** @class */ (function () {
     function AuthController(dataSource, authService) {
         this.dataSource = dataSource;
@@ -81,10 +82,19 @@ var AuthController = /** @class */ (function () {
             });
         });
     };
+    AuthController.prototype.async = function (authHeader) {
+        var token = authHeader.split(' ')[1];
+        this.authService.logoutUser(token);
+    };
     __decorate([
         common_1.Post('login'),
         __param(0, common_1.Body())
     ], AuthController.prototype, "login");
+    __decorate([
+        common_1.UseGuards(passport_1.AuthGuard('bearer')),
+        common_1.Delete('logout'),
+        __param(0, common_1.Headers('authorization'))
+    ], AuthController.prototype, "async");
     AuthController = __decorate([
         common_1.Controller('auth')
     ], AuthController);

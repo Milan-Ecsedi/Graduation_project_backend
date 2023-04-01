@@ -90,6 +90,24 @@ var AuthService = /** @class */ (function () {
             });
         });
     };
+    AuthService.prototype.logoutUser = function (token) {
+        return __awaiter(this, void 0, void 0, function () {
+            var tokenRepo, tokenObj;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        tokenRepo = this.dataSource.getRepository(token_entity_1["default"]);
+                        return [4 /*yield*/, tokenRepo.findOne({ where: { token: token }, relations: { user: true } })];
+                    case 1:
+                        tokenObj = _a.sent();
+                        return [4 /*yield*/, tokenRepo["delete"](tokenObj)];
+                    case 2:
+                        _a.sent();
+                        return [2 /*return*/];
+                }
+            });
+        });
+    };
     AuthService = __decorate([
         common_1.Injectable()
     ], AuthService);

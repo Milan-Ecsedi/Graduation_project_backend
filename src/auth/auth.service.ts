@@ -37,4 +37,13 @@ constructor(private dataSource:DataSource){}
     return tokenString;
     }
 
+    async logoutUser(token) {
+        const tokenRepo = this.dataSource.getRepository(Token);
+        const tokenObj =  await tokenRepo.findOne({where: {token}, 
+            relations : {user: true}
+         });
+        await tokenRepo.delete(tokenObj)
+      
+    }
+
 }
