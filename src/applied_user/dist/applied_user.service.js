@@ -52,22 +52,22 @@ var AppliedUserService = /** @class */ (function () {
     }
     AppliedUserService.prototype.create = function (user, id) {
         return __awaiter(this, void 0, void 0, function () {
-            var courseRepo, course, appliedRepo, appliedUser;
+            var courseRepo, appliedRepo, course, appliedUser;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
+                        console.log(id);
+                        id;
                         courseRepo = this.dataSource.getRepository(course_entity_1["default"]);
+                        appliedRepo = this.dataSource.getRepository(applied_user_entity_1["default"]);
                         return [4 /*yield*/, courseRepo.findOne({ where: { id: id } })];
                     case 1:
                         course = _a.sent();
-                        console.log(course);
-                        if (course === null) {
-                            throw new common_1.BadRequestException({ message: 'A kurzusra nem lehet jelentkezni' });
-                        }
-                        appliedRepo = this.dataSource.getRepository(applied_user_entity_1["default"]);
                         appliedUser = new applied_user_entity_1["default"];
                         appliedUser.user = user;
                         appliedUser.course = course;
+                        //const date = new Date()
+                        //const ymdFormat= date.getFullYear() + '-' + (date.getMonth() + 1 )+ '-' + (date.getDate()) 
                         appliedRepo.save(appliedUser);
                         return [2 /*return*/];
                 }

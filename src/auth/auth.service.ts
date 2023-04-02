@@ -37,7 +37,7 @@ constructor(private dataSource:DataSource){}
     return tokenString;
     }
 
-    async logoutUser(token) {
+    async logout(token) {
         const tokenRepo = this.dataSource.getRepository(Token);
         const tokenObj =  await tokenRepo.findOne({where: {token}, 
             relations : {user: true}

@@ -84,7 +84,7 @@ var AuthController = /** @class */ (function () {
     };
     AuthController.prototype.async = function (authHeader) {
         var token = authHeader.split(' ')[1];
-        this.authService.logoutUser(token);
+        this.authService.logout(token);
     };
     __decorate([
         common_1.Post('login'),

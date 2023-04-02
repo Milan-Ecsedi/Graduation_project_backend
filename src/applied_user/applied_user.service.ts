@@ -6,27 +6,23 @@ import { CreateAppliedUserDto } from './dto/create-applied_user.dto';
 import { UpdateAppliedUserDto } from './dto/update-applied_user.dto';
 import AppliedUser from './entities/applied_user.entity';
 
+
 @Injectable()
 export class AppliedUserService {
   constructor(private dataSource: DataSource) {}
 
-  async create(user : User, id:number) {
-
+  async create(user : User, id: number) {
+    console.log(id)
+    id
     const courseRepo= this.dataSource.getRepository(Course)
-
-
-    const course= await courseRepo.findOne({ where: {id:id}})
-    console.log(course)
-    if(course===null){
-      throw new BadRequestException({message:'A kurzusra nem lehet jelentkezni'})
-    }
-
-
     const appliedRepo= this.dataSource.getRepository(AppliedUser)
+    const course = await courseRepo.findOne({where:{id: id}})
     const appliedUser= new AppliedUser
     appliedUser.user= user
     appliedUser.course= course
-    appliedRepo.save(appliedUser);
+    //const date = new Date()
+    //const ymdFormat= date.getFullYear() + '-' + (date.getMonth() + 1 )+ '-' + (date.getDate()) 
+   appliedRepo.save(appliedUser);
   }
 
   findAll() {

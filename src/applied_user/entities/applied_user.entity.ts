@@ -20,7 +20,7 @@ id:number;
 user: User;
 
 
-@ManyToOne(()=> Course,(course)=>course.id)
+@ManyToOne(()=> Course,(course)=>course.AppliedCourse)
 course:Course;
 
 

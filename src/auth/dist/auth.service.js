@@ -90,7 +90,7 @@ var AuthService = /** @class */ (function () {
             });
         });
     };
-    AuthService.prototype.logoutUser = function (token) {
+    AuthService.prototype.logout = function (token) {
         return __awaiter(this, void 0, void 0, function () {
             var tokenRepo, tokenObj;
             return __generator(this, function (_a) {

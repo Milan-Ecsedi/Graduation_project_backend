@@ -9,9 +9,9 @@ export class AppliedUserController {
   constructor(private readonly appliedUserService: AppliedUserService) {}
   
   @UseGuards(AuthGuard('bearer'))
-  @Post()
+  @Post('join')
   create(@Request() req, @Body() id) {
-    return this.appliedUserService.create(req.user, id);
+    return this.appliedUserService.create(req.user, id.id);
   }
 
   @Get()
