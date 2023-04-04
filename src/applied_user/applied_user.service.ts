@@ -13,7 +13,6 @@ export class AppliedUserService {
 
   async create(user : User, id: number) {
     console.log(id)
-    id
     const courseRepo= this.dataSource.getRepository(Course)
     const appliedRepo= this.dataSource.getRepository(AppliedUser)
     const course = await courseRepo.findOne({where:{id: id}})

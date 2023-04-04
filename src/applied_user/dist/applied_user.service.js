@@ -57,7 +57,6 @@ var AppliedUserService = /** @class */ (function () {
                 switch (_a.label) {
                     case 0:
                         console.log(id);
-                        id;
                         courseRepo = this.dataSource.getRepository(course_entity_1["default"]);
                         appliedRepo = this.dataSource.getRepository(applied_user_entity_1["default"]);
                         return [4 /*yield*/, courseRepo.findOne({ where: { id: id } })];
