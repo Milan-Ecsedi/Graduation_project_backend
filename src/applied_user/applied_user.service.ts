@@ -12,15 +12,13 @@ export class AppliedUserService {
   constructor(private dataSource: DataSource) {}
 
   async create(user : User, id: number) {
-    console.log(id)
     const courseRepo= this.dataSource.getRepository(Course)
     const appliedRepo= this.dataSource.getRepository(AppliedUser)
     const course = await courseRepo.findOne({where:{id: id}})
     const appliedUser= new AppliedUser
     appliedUser.user= user
     appliedUser.course= course
-    //const date = new Date()
-    //const ymdFormat= date.getFullYear() + '-' + (date.getMonth() + 1 )+ '-' + (date.getDate()) 
+    appliedUser.apply_date= new Date()
    appliedRepo.save(appliedUser);
   }
 
@@ -29,9 +27,8 @@ export class AppliedUserService {
   }
 
   findOne(id: number) {
-    return `This action returns a #${id} appliedUser`;
-  }
 
+  }
   update(id: number, updateAppliedUserDto: UpdateAppliedUserDto) {
     return `This action updates a #${id} appliedUser`;
   }

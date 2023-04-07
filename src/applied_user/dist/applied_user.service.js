@@ -56,7 +56,6 @@ var AppliedUserService = /** @class */ (function () {
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
-                        console.log(id);
                         courseRepo = this.dataSource.getRepository(course_entity_1["default"]);
                         appliedRepo = this.dataSource.getRepository(applied_user_entity_1["default"]);
                         return [4 /*yield*/, courseRepo.findOne({ where: { id: id } })];
@@ -65,8 +64,7 @@ var AppliedUserService = /** @class */ (function () {
                         appliedUser = new applied_user_entity_1["default"];
                         appliedUser.user = user;
                         appliedUser.course = course;
-                        //const date = new Date()
-                        //const ymdFormat= date.getFullYear() + '-' + (date.getMonth() + 1 )+ '-' + (date.getDate()) 
+                        appliedUser.apply_date = new Date();
                         appliedRepo.save(appliedUser);
                         return [2 /*return*/];
                 }
@@ -77,7 +75,6 @@ var AppliedUserService = /** @class */ (function () {
         return "This action returns all appliedUser";
     };
     AppliedUserService.prototype.findOne = function (id) {
-        return "This action returns a #" + id + " appliedUser";
     };
     AppliedUserService.prototype.update = function (id, updateAppliedUserDto) {
         return "This action updates a #" + id + " appliedUser";
