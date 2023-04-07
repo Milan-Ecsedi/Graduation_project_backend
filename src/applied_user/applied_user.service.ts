@@ -26,8 +26,10 @@ export class AppliedUserService {
     return `This action returns all appliedUser`;
   }
 
-  findOne(id: number) {
+  findOne(id: number) {}
 
+  checkIfAlreadyIn(id:number){
+    const appliedRepo= this.dataSource.getRepository(AppliedUser)
   }
   update(id: number, updateAppliedUserDto: UpdateAppliedUserDto) {
     return `This action updates a #${id} appliedUser`;

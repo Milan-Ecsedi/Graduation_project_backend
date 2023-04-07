@@ -74,7 +74,9 @@ var AppliedUserService = /** @class */ (function () {
     AppliedUserService.prototype.findAll = function () {
         return "This action returns all appliedUser";
     };
-    AppliedUserService.prototype.findOne = function (id) {
+    AppliedUserService.prototype.findOne = function (id) { };
+    AppliedUserService.prototype.checkIfAlreadyIn = function (id) {
+        var appliedRepo = this.dataSource.getRepository(applied_user_entity_1["default"]);
     };
     AppliedUserService.prototype.update = function (id, updateAppliedUserDto) {
         return "This action updates a #" + id + " appliedUser";

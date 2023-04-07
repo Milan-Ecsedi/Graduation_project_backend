@@ -22,6 +22,9 @@ var AppliedUserController = /** @class */ (function () {
     AppliedUserController.prototype.findAll = function () {
         return this.appliedUserService.findAll();
     };
+    AppliedUserController.prototype.CheckUser = function (uid) {
+        return this.appliedUserService.checkIfAlreadyIn(uid.id);
+    };
     AppliedUserController.prototype.findOne = function (id) {
         return this.appliedUserService.findOne(+id);
     };
@@ -39,6 +42,10 @@ var AppliedUserController = /** @class */ (function () {
     __decorate([
         common_1.Get()
     ], AppliedUserController.prototype, "findAll");
+    __decorate([
+        common_1.Post(),
+        __param(0, common_1.Body())
+    ], AppliedUserController.prototype, "CheckUser");
     __decorate([
         common_1.Get(':id'),
         __param(0, common_1.Param('id'))

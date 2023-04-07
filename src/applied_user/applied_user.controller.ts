@@ -19,6 +19,11 @@ export class AppliedUserController {
     return this.appliedUserService.findAll();
   }
 
+  @Post()
+  CheckUser(@Body() uid){
+    return this.appliedUserService.checkIfAlreadyIn(uid.id)
+  }
+
   @Get(':id')
   findOne(@Param('id') id: string) {
     return this.appliedUserService.findOne(+id);
