@@ -1,7 +1,7 @@
-import { BadRequestException, Injectable } from '@nestjs/common';
+import { BadRequestException, ImATeapotException, Injectable } from '@nestjs/common';
 import Course from 'src/course/entities/course.entity';
 import User from 'src/user/entities/user.entity';
-import { DataSource } from 'typeorm';
+import { And, DataSource } from 'typeorm';
 import { CreateAppliedUserDto } from './dto/create-applied_user.dto';
 import { UpdateAppliedUserDto } from './dto/update-applied_user.dto';
 import AppliedUser from './entities/applied_user.entity';
@@ -28,9 +28,22 @@ export class AppliedUserService {
 
   findOne(id: number) {}
 
-  checkIfAlreadyIn(id:number){
+  async isAlreadyJoined(req: User , id: number){
     const appliedRepo= this.dataSource.getRepository(AppliedUser)
+    const courseRepo= await this.dataSource.getRepository(Course)
+    const course= await courseRepo.findOne({where :{id: id}})
+    const appliedcourse=await appliedRepo.findOne({where:{course: course, user: req}, relations:{ user: true , course: true}})
+    
+    if(appliedcourse=== null){
+      throw new ImATeapotException({message:'Fck it'})
+    }
+    else{
+      return appliedcourse
+    }
+
   }
+
+
   update(id: number, updateAppliedUserDto: UpdateAppliedUserDto) {
     return `This action updates a #${id} appliedUser`;
   }

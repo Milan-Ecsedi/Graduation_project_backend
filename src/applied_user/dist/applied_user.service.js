@@ -75,8 +75,32 @@ var AppliedUserService = /** @class */ (function () {
         return "This action returns all appliedUser";
     };
     AppliedUserService.prototype.findOne = function (id) { };
-    AppliedUserService.prototype.checkIfAlreadyIn = function (id) {
-        var appliedRepo = this.dataSource.getRepository(applied_user_entity_1["default"]);
+    AppliedUserService.prototype.isAlreadyJoined = function (req, id) {
+        return __awaiter(this, void 0, void 0, function () {
+            var appliedRepo, courseRepo, course, appliedcourse;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        appliedRepo = this.dataSource.getRepository(applied_user_entity_1["default"]);
+                        return [4 /*yield*/, this.dataSource.getRepository(course_entity_1["default"])];
+                    case 1:
+                        courseRepo = _a.sent();
+                        return [4 /*yield*/, courseRepo.findOne({ where: { id: id } })];
+                    case 2:
+                        course = _a.sent();
+                        return [4 /*yield*/, appliedRepo.findOne({ where: { course: course, user: req }, relations: { user: true, course: true } })];
+                    case 3:
+                        appliedcourse = _a.sent();
+                        if (appliedcourse === null) {
+                            throw new common_1.ImATeapotException({ message: 'Fck it' });
+                        }
+                        else {
+                            return [2 /*return*/, appliedcourse];
+                        }
+                        return [2 /*return*/];
+                }
+            });
+        });
     };
     AppliedUserService.prototype.update = function (id, updateAppliedUserDto) {
         return "This action updates a #" + id + " appliedUser";

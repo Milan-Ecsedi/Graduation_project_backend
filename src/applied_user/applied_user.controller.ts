@@ -19,9 +19,10 @@ export class AppliedUserController {
     return this.appliedUserService.findAll();
   }
 
-  @Post()
-  CheckUser(@Body() uid){
-    return this.appliedUserService.checkIfAlreadyIn(uid.id)
+  @UseGuards(AuthGuard('bearer'))
+  @Get('isJoined/:id')
+  CheckUser(@Request() req ,  @Param('id') id : string){
+    return this.appliedUserService.isAlreadyJoined(req.user, +id)
   }
 
   @Get(':id')
