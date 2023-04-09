@@ -35,7 +35,7 @@ export class AppliedUserService {
     const appliedcourse=await appliedRepo.findOne({where:{course: course, user: req}, relations:{ user: true , course: true}})
     
     if(appliedcourse=== null){
-      throw new ImATeapotException({message:'Fck it'})
+      throw new ImATeapotException({message:'Erre a kurzusra nem csatlakozott  '+req.username})
     }
     else{
       return appliedcourse
