@@ -14,13 +14,11 @@ export class UserController {
   }
 
   @Get('list')
-  @UseGuards(AuthGuard('bearer'))
   findAll() {
     return this.userService.findAll();
   }
 
   @Get('search/:id')
-  @UseGuards(AuthGuard('bearer'))
   findOne(@Param('id') id: string) {
     return this.userService.findOne(+id);
   }

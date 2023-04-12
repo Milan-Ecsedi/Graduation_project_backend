@@ -92,7 +92,7 @@ var AppliedUserService = /** @class */ (function () {
                     case 3:
                         appliedcourse = _a.sent();
                         if (appliedcourse === null) {
-                            throw new common_1.ImATeapotException({ message: 'Erre a kurzusra nem csatlakozott  ' + req.username });
+                            throw new common_1.BadRequestException({ message: 'Erre a kurzusra nem csatlakozott ' + req.username });
                         }
                         else {
                             return [2 /*return*/, appliedcourse];

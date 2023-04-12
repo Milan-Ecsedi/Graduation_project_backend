@@ -22,6 +22,6 @@ export class CreateUserDto {
   email:string;
 
   
-  profilePicture:string;
+  profile_pic:string;
 
 }

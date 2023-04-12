@@ -102,7 +102,35 @@ var UserService = /** @class */ (function () {
         return "This action returns a #" + id + " user";
     };
     UserService.prototype.update = function (id, updateUserDto) {
-        return "This action updates a #" + id + " user";
+        return __awaiter(this, void 0, void 0, function () {
+            var userRepo, userToUpdate, _a;
+            return __generator(this, function (_b) {
+                switch (_b.label) {
+                    case 0:
+                        userRepo = this.dataSource.getRepository(user_entity_1["default"]);
+                        return [4 /*yield*/, userRepo.findOneBy({ id: id })];
+                    case 1:
+                        if (!(_b.sent())) {
+                            throw new common_1.BadRequestException('Ilyen id-val nem található felhasználó');
+                        }
+                        return [4 /*yield*/, userRepo.findOneBy({ id: id })];
+                    case 2:
+                        userToUpdate = _b.sent();
+                        if (updateUserDto.username == null) {
+                            throw new common_1.BadRequestException('A kéréshez nem társult semilyen adat');
+                        }
+                        userToUpdate.username = updateUserDto.username;
+                        _a = userToUpdate;
+                        return [4 /*yield*/, this.appService.getPW(updateUserDto.password)];
+                    case 3:
+                        _a.password = _b.sent();
+                        userToUpdate.email = updateUserDto.email;
+                        userToUpdate.profile_pic = updateUserDto.profile_pic;
+                        userRepo.save(userToUpdate);
+                        return [2 /*return*/];
+                }
+            });
+        });
     };
     UserService.prototype.remove = function (id) {
         return __awaiter(this, void 0, void 0, function () {

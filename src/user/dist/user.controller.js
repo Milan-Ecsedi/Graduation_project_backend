@@ -39,12 +39,10 @@ var UserController = /** @class */ (function () {
         __param(0, common_1.Body())
     ], UserController.prototype, "create");
     __decorate([
-        common_1.Get('list'),
-        common_1.UseGuards(passport_1.AuthGuard('bearer'))
+        common_1.Get('list')
     ], UserController.prototype, "findAll");
     __decorate([
         common_1.Get('search/:id'),
-        common_1.UseGuards(passport_1.AuthGuard('bearer')),
         __param(0, common_1.Param('id'))
     ], UserController.prototype, "findOne");
     __decorate([

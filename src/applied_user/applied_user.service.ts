@@ -5,6 +5,7 @@ import { And, DataSource } from 'typeorm';
 import { CreateAppliedUserDto } from './dto/create-applied_user.dto';
 import { UpdateAppliedUserDto } from './dto/update-applied_user.dto';
 import AppliedUser from './entities/applied_user.entity';
+import { ok } from 'assert';
 
 
 @Injectable()
@@ -35,7 +36,7 @@ export class AppliedUserService {
     const appliedcourse=await appliedRepo.findOne({where:{course: course, user: req}, relations:{ user: true , course: true}})
     
     if(appliedcourse=== null){
-      throw new ImATeapotException({message:'Erre a kurzusra nem csatlakozott  '+req.username})
+      throw new BadRequestException({message:'Erre a kurzusra nem csatlakozott '+req.username})
     }
     else{
       return appliedcourse
