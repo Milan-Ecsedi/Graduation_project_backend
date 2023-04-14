@@ -49,7 +49,7 @@ export class AppliedUserService {
   }
 
 
-  async findAppliedCourses(req: User){
+  async findAllCourseByUser(req: User){
 
     const appliedRepo=this.dataSource.getRepository(AppliedUser)
     const appliedcourses= await appliedRepo.find()

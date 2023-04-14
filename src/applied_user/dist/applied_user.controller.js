@@ -29,7 +29,7 @@ var AppliedUserController = /** @class */ (function () {
         return this.appliedUserService.findOne(+id);
     };
     AppliedUserController.prototype.findAllCourseByUser = function (req) {
-        return this.appliedUserService.findAppliedCourses(req.user);
+        return this.appliedUserService.findAllCourseByUser(req.user);
     };
     AppliedUserController.prototype.update = function (id, updateAppliedUserDto) {
         return this.appliedUserService.update(+id, updateAppliedUserDto);

@@ -33,9 +33,9 @@ export class AppliedUserController {
   @UseGuards(AuthGuard('bearer'))
   @Get('applications')
   findAllCourseByUser(@Request() req){
-    return this.appliedUserService.findAppliedCourses(req.user)
+    return this.appliedUserService.findAllCourseByUser(req.user)
   }
-  
+
   @Patch(':id')
   update(@Param('id') id: string, @Body() updateAppliedUserDto: UpdateAppliedUserDto) {
     return this.appliedUserService.update(+id, updateAppliedUserDto);

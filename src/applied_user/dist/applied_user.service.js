@@ -106,7 +106,7 @@ var AppliedUserService = /** @class */ (function () {
             });
         });
     };
-    AppliedUserService.prototype.findAppliedCourses = function (req) {
+    AppliedUserService.prototype.findAllCourseByUser = function (req) {
         return __awaiter(this, void 0, void 0, function () {
             var appliedRepo, appliedcourses;
             return __generator(this, function (_a) {
