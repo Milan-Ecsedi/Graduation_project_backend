@@ -46,6 +46,7 @@ exports.AppliedUserService = void 0;
 var common_1 = require("@nestjs/common");
 var course_entity_1 = require("src/course/entities/course.entity");
 var applied_user_entity_1 = require("./entities/applied_user.entity");
+var isjoined_dto_1 = require("./dto/isjoined.dto");
 var AppliedUserService = /** @class */ (function () {
     function AppliedUserService(dataSource) {
         this.dataSource = dataSource;
@@ -77,7 +78,7 @@ var AppliedUserService = /** @class */ (function () {
     AppliedUserService.prototype.findOne = function (id) { };
     AppliedUserService.prototype.isAlreadyJoined = function (req, id) {
         return __awaiter(this, void 0, void 0, function () {
-            var appliedRepo, courseRepo, course, appliedcourse;
+            var appliedRepo, courseRepo, course, appliedcourse, isjoined;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -91,13 +92,33 @@ var AppliedUserService = /** @class */ (function () {
                         return [4 /*yield*/, appliedRepo.findOne({ where: { course: course, user: req }, relations: { user: true, course: true } })];
                     case 3:
                         appliedcourse = _a.sent();
+                        isjoined = new isjoined_dto_1.isJoinedDto;
                         if (appliedcourse === null) {
-                            throw new common_1.BadRequestException({ message: 'Erre a kurzusra nem csatlakozott ' + req.username });
+                            isjoined.joined = false;
+                            return [2 /*return*/, isjoined];
                         }
                         else {
-                            return [2 /*return*/, appliedcourse];
+                            isjoined.joined = true;
+                            return [2 /*return*/, isjoined];
                         }
                         return [2 /*return*/];
+                }
+            });
+        });
+    };
+    AppliedUserService.prototype.findAppliedCourses = function (req) {
+        return __awaiter(this, void 0, void 0, function () {
+            var appliedRepo, appliedcourses;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        appliedRepo = this.dataSource.getRepository(applied_user_entity_1["default"]);
+                        return [4 /*yield*/, appliedRepo.find()];
+                    case 1:
+                        appliedcourses = _a.sent();
+                        console.log('le fut ez');
+                        console.log(appliedcourses);
+                        return [2 /*return*/, appliedcourses];
                 }
             });
         });

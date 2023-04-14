@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete, UseGuards, Request } from '@nestjs/common';
+import { Controller, Get, Post, Body, Patch, Param, Delete, UseGuards, Request, Req } from '@nestjs/common';
 import { AuthGuard } from '@nestjs/passport';
 import { AppliedUserService } from './applied_user.service';
 import { CreateAppliedUserDto } from './dto/create-applied_user.dto';
@@ -30,6 +30,12 @@ export class AppliedUserController {
     return this.appliedUserService.findOne(+id);
   }
 
+  @UseGuards(AuthGuard('bearer'))
+  @Get('applications')
+  findAllCourseByUser(@Request() req){
+    return this.appliedUserService.findAppliedCourses(req.user)
+  }
+  
   @Patch(':id')
   update(@Param('id') id: string, @Body() updateAppliedUserDto: UpdateAppliedUserDto) {
     return this.appliedUserService.update(+id, updateAppliedUserDto);

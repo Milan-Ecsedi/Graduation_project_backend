@@ -6,6 +6,7 @@ import { CreateAppliedUserDto } from './dto/create-applied_user.dto';
 import { UpdateAppliedUserDto } from './dto/update-applied_user.dto';
 import AppliedUser from './entities/applied_user.entity';
 import { ok } from 'assert';
+import { isJoinedDto } from './dto/isjoined.dto';
 
 
 @Injectable()
@@ -34,16 +35,30 @@ export class AppliedUserService {
     const courseRepo= await this.dataSource.getRepository(Course)
     const course= await courseRepo.findOne({where :{id: id}})
     const appliedcourse=await appliedRepo.findOne({where:{course: course, user: req}, relations:{ user: true , course: true}})
-    
+    const isjoined= new isJoinedDto
+
     if(appliedcourse=== null){
-      throw new BadRequestException({message:'Erre a kurzusra nem csatlakozott '+req.username})
+      isjoined.joined= false
+      return isjoined
     }
     else{
-      return appliedcourse
+      isjoined.joined= true
+      return isjoined
     }
 
   }
 
+
+  async findAppliedCourses(req: User){
+
+    const appliedRepo=this.dataSource.getRepository(AppliedUser)
+    const appliedcourses= await appliedRepo.find()
+
+    console.log('le fut ez')
+    console.log(appliedcourses)
+
+    return appliedcourses
+  }
 
   update(id: number, updateAppliedUserDto: UpdateAppliedUserDto) {
     return `This action updates a #${id} appliedUser`;

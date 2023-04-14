@@ -47,18 +47,17 @@ export class UserService {
   
     async update(id: number, updateUserDto: UpdateUserDto) {
       const userRepo = this.dataSource.getRepository(User);
-      if (!(await userRepo.findOneBy({ id: id }))) {
+      const user= await  userRepo.findOneBy({ id: id })
+      if (!user) {
         throw new BadRequestException('Ilyen id-val nem található felhasználó');
       }
+
       const userToUpdate = await userRepo.findOneBy({ id });
-      if (updateUserDto.username == null) {
-        throw new BadRequestException('A kéréshez nem társult semilyen adat');
-      }
-      userToUpdate.username = updateUserDto.username;
-      userToUpdate.password = await this.appService.getPW(updateUserDto.password);
-      userToUpdate.email = updateUserDto.email;
+
+      userToUpdate.username = user.username;
+      userToUpdate.password = user.password;
       userToUpdate.profile_pic = updateUserDto.profile_pic;
-  
+      
       userRepo.save(userToUpdate);
     }
   

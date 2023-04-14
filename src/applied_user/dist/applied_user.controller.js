@@ -28,6 +28,9 @@ var AppliedUserController = /** @class */ (function () {
     AppliedUserController.prototype.findOne = function (id) {
         return this.appliedUserService.findOne(+id);
     };
+    AppliedUserController.prototype.findAllCourseByUser = function (req) {
+        return this.appliedUserService.findAppliedCourses(req.user);
+    };
     AppliedUserController.prototype.update = function (id, updateAppliedUserDto) {
         return this.appliedUserService.update(+id, updateAppliedUserDto);
     };
@@ -51,6 +54,11 @@ var AppliedUserController = /** @class */ (function () {
         common_1.Get(':id'),
         __param(0, common_1.Param('id'))
     ], AppliedUserController.prototype, "findOne");
+    __decorate([
+        common_1.UseGuards(passport_1.AuthGuard('bearer')),
+        common_1.Get('applications'),
+        __param(0, common_1.Request())
+    ], AppliedUserController.prototype, "findAllCourseByUser");
     __decorate([
         common_1.Patch(':id'),
         __param(0, common_1.Param('id')), __param(1, common_1.Body())
