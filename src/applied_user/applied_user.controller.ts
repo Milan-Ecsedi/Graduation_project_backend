@@ -14,9 +14,10 @@ export class AppliedUserController {
     return this.appliedUserService.create(req.user, id.id);
   }
 
-  @Get()
-  findAll() {
-    return this.appliedUserService.findAll();
+  @UseGuards(AuthGuard('bearer'))
+  @Get('findCourseByUser')
+  findAll(@Request() req){
+    return this.appliedUserService.findAll(req.user);
   }
 
   @UseGuards(AuthGuard('bearer'))

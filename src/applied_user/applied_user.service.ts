@@ -24,8 +24,12 @@ export class AppliedUserService {
    appliedRepo.save(appliedUser);
   }
 
-  findAll() {
-    return `This action returns all appliedUser`;
+  async findAll(req: User) {
+    const appliedRepo=this.dataSource.getRepository(AppliedUser)
+    const appliedcourses= await appliedRepo.find({where: {user: req}, relations: {course: true}})
+    console.log(appliedcourses)
+
+    return appliedcourses;
   }
 
   findOne(id: number) {}
@@ -54,7 +58,6 @@ export class AppliedUserService {
     const appliedRepo=this.dataSource.getRepository(AppliedUser)
     const appliedcourses= await appliedRepo.find()
 
-    console.log('le fut ez')
     console.log(appliedcourses)
 
     return appliedcourses
