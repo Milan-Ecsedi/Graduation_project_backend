@@ -71,4 +71,13 @@ export class UserService {
     return req.user
   }
 
+  async updateProfilePic(req: User, profile_pic: string){
+
+    const userRepo= this.dataSource.getRepository(User)
+    const user= await userRepo.findOne({where: {id: req.id}})
+    user.profile_pic= profile_pic
+    userRepo.save(user)
+
+  }
+
 }

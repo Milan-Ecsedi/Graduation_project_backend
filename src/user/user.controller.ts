@@ -38,4 +38,12 @@ export class UserController {
   findProfile(@Request() req){
     return this.userService.getProfile(req)
   }
+
+  @UseGuards(AuthGuard('bearer'))
+  @Patch('updateProfile')
+  updateProfilePic(@Request() req , @Body() profile){
+
+    return this.userService.updateProfilePic(req.user , profile.profile_pic)
+
+  }
 }

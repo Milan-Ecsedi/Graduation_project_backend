@@ -34,6 +34,9 @@ var UserController = /** @class */ (function () {
     UserController.prototype.findProfile = function (req) {
         return this.userService.getProfile(req);
     };
+    UserController.prototype.updateProfilePic = function (req, profile) {
+        return this.userService.updateProfilePic(req.user, profile.profile_pic);
+    };
     __decorate([
         common_1.Post('register'),
         __param(0, common_1.Body())
@@ -58,6 +61,11 @@ var UserController = /** @class */ (function () {
         common_1.Get('profile'),
         __param(0, common_1.Request())
     ], UserController.prototype, "findProfile");
+    __decorate([
+        common_1.UseGuards(passport_1.AuthGuard('bearer')),
+        common_1.Patch('updateProfile'),
+        __param(0, common_1.Request()), __param(1, common_1.Body())
+    ], UserController.prototype, "updateProfilePic");
     UserController = __decorate([
         common_1.Controller('user')
     ], UserController);

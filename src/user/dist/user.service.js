@@ -147,6 +147,23 @@ var UserService = /** @class */ (function () {
             });
         });
     };
+    UserService.prototype.updateProfilePic = function (req, profile_pic) {
+        return __awaiter(this, void 0, void 0, function () {
+            var userRepo, user;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        userRepo = this.dataSource.getRepository(user_entity_1["default"]);
+                        return [4 /*yield*/, userRepo.findOne({ where: { id: req.id } })];
+                    case 1:
+                        user = _a.sent();
+                        user.profile_pic = profile_pic;
+                        userRepo.save(user);
+                        return [2 /*return*/];
+                }
+            });
+        });
+    };
     UserService = __decorate([
         common_1.Injectable()
     ], UserService);
