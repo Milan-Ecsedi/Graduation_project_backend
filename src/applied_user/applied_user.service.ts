@@ -27,7 +27,6 @@ export class AppliedUserService {
   async findAll(req: User) {
     const appliedRepo=this.dataSource.getRepository(AppliedUser)
     const appliedcourses= await appliedRepo.find({where: {user: req}, relations: {course: true}})
-    console.log(appliedcourses)
 
     return appliedcourses;
   }

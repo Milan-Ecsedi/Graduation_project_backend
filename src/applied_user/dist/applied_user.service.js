@@ -82,7 +82,6 @@ var AppliedUserService = /** @class */ (function () {
                         return [4 /*yield*/, appliedRepo.find({ where: { user: req }, relations: { course: true } })];
                     case 1:
                         appliedcourses = _a.sent();
-                        console.log(appliedcourses);
                         return [2 /*return*/, appliedcourses];
                 }
             });
