@@ -2,10 +2,8 @@ import { BadRequestException, ImATeapotException, Injectable } from '@nestjs/com
 import Course from 'src/course/entities/course.entity';
 import User from 'src/user/entities/user.entity';
 import { And, DataSource } from 'typeorm';
-import { CreateAppliedUserDto } from './dto/create-applied_user.dto';
 import { UpdateAppliedUserDto } from './dto/update-applied_user.dto';
 import AppliedUser from './entities/applied_user.entity';
-import { ok } from 'assert';
 import { isJoinedDto } from './dto/isjoined.dto';
 
 
@@ -21,12 +19,12 @@ export class AppliedUserService {
     appliedUser.user= user
     appliedUser.course= course
     appliedUser.apply_date= new Date()
-   appliedRepo.save(appliedUser);
+    appliedRepo.save(appliedUser);
   }
 
-  async findAll(req: User) {
+  async findAll() {
     const appliedRepo=this.dataSource.getRepository(AppliedUser)
-    const appliedcourses= await appliedRepo.find({where: {user: req}, relations: {course: true}})
+    const appliedcourses= await appliedRepo.find()
 
     return appliedcourses;
   }
@@ -52,14 +50,11 @@ export class AppliedUserService {
   }
 
 
-  async findAllCourseByUser(req: User){
-
+  async findAllCourseByUser(req: User) {
     const appliedRepo=this.dataSource.getRepository(AppliedUser)
-    const appliedcourses= await appliedRepo.find()
+    const appliedcourses= await appliedRepo.find({where: {user: req}, relations: {course: true}})
 
-    console.log(appliedcourses)
-
-    return appliedcourses
+    return appliedcourses;
   }
 
   update(id: number, updateAppliedUserDto: UpdateAppliedUserDto) {

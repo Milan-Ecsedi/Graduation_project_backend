@@ -14,10 +14,9 @@ export class AppliedUserController {
     return this.appliedUserService.create(req.user, id.id);
   }
 
-  @UseGuards(AuthGuard('bearer'))
-  @Get('findCourseByUser')
-  findAll(@Request() req){
-    return this.appliedUserService.findAll(req.user);
+  @Get('list')
+  findAll(){
+    return this.appliedUserService.findAll();
   }
 
   @UseGuards(AuthGuard('bearer'))
@@ -32,8 +31,9 @@ export class AppliedUserController {
   }
 
   @UseGuards(AuthGuard('bearer'))
-  @Get('applications')
+  @Get()
   findAllCourseByUser(@Request() req){
+    console.log("szoszi")
     return this.appliedUserService.findAllCourseByUser(req.user)
   }
 

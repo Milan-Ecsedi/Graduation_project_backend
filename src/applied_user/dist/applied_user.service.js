@@ -72,14 +72,14 @@ var AppliedUserService = /** @class */ (function () {
             });
         });
     };
-    AppliedUserService.prototype.findAll = function (req) {
+    AppliedUserService.prototype.findAll = function () {
         return __awaiter(this, void 0, void 0, function () {
             var appliedRepo, appliedcourses;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
                         appliedRepo = this.dataSource.getRepository(applied_user_entity_1["default"]);
-                        return [4 /*yield*/, appliedRepo.find({ where: { user: req }, relations: { course: true } })];
+                        return [4 /*yield*/, appliedRepo.find()];
                     case 1:
                         appliedcourses = _a.sent();
                         return [2 /*return*/, appliedcourses];
@@ -125,10 +125,9 @@ var AppliedUserService = /** @class */ (function () {
                 switch (_a.label) {
                     case 0:
                         appliedRepo = this.dataSource.getRepository(applied_user_entity_1["default"]);
-                        return [4 /*yield*/, appliedRepo.find()];
+                        return [4 /*yield*/, appliedRepo.find({ where: { user: req }, relations: { course: true } })];
                     case 1:
                         appliedcourses = _a.sent();
-                        console.log(appliedcourses);
                         return [2 /*return*/, appliedcourses];
                 }
             });

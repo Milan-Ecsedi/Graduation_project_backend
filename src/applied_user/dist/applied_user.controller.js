@@ -19,8 +19,8 @@ var AppliedUserController = /** @class */ (function () {
     AppliedUserController.prototype.create = function (req, id) {
         return this.appliedUserService.create(req.user, id.id);
     };
-    AppliedUserController.prototype.findAll = function (req) {
-        return this.appliedUserService.findAll(req.user);
+    AppliedUserController.prototype.findAll = function () {
+        return this.appliedUserService.findAll();
     };
     AppliedUserController.prototype.CheckUser = function (req, id) {
         return this.appliedUserService.isAlreadyJoined(req.user, +id);
@@ -29,6 +29,7 @@ var AppliedUserController = /** @class */ (function () {
         return this.appliedUserService.findOne(+id);
     };
     AppliedUserController.prototype.findAllCourseByUser = function (req) {
+        console.log("szoszi");
         return this.appliedUserService.findAllCourseByUser(req.user);
     };
     AppliedUserController.prototype.update = function (id, updateAppliedUserDto) {
@@ -43,9 +44,7 @@ var AppliedUserController = /** @class */ (function () {
         __param(0, common_1.Request()), __param(1, common_1.Body())
     ], AppliedUserController.prototype, "create");
     __decorate([
-        common_1.UseGuards(passport_1.AuthGuard('bearer')),
-        common_1.Get('findCourseByUser'),
-        __param(0, common_1.Request())
+        common_1.Get('list')
     ], AppliedUserController.prototype, "findAll");
     __decorate([
         common_1.UseGuards(passport_1.AuthGuard('bearer')),
@@ -58,7 +57,7 @@ var AppliedUserController = /** @class */ (function () {
     ], AppliedUserController.prototype, "findOne");
     __decorate([
         common_1.UseGuards(passport_1.AuthGuard('bearer')),
-        common_1.Get('applications'),
+        common_1.Get(),
         __param(0, common_1.Request())
     ], AppliedUserController.prototype, "findAllCourseByUser");
     __decorate([
