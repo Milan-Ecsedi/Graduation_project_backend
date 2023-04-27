@@ -10,6 +10,11 @@ export class AuthService {
 constructor(private dataSource:DataSource){}
 
 
+/**
+ * Kikeresi a felhasználót token alapján
+ * @param token felhasználói token
+ * @returns token alapján megtalált felhasználót 
+ */
     async findUserByToken(token:string){
 
     const tokenRepo=this.dataSource.getRepository(Token);
@@ -24,6 +29,11 @@ constructor(private dataSource:DataSource){}
     }
 
 
+    /**
+     * 
+     * @param user Felhasználó
+     * @returns generált token-t string-ként
+     */
     async createToken(user:User){
 
     const tokenGenerate=crypto.randomBytes(32);
@@ -37,6 +47,10 @@ constructor(private dataSource:DataSource){}
     return tokenString;
     }
 
+    /**
+     * Kitörli a megadott token-t
+     * @param token felhasználó token-je
+     */
     async logout(token) {
         const tokenRepo = this.dataSource.getRepository(Token);
         const tokenObj =  await tokenRepo.findOne({where: {token}, 

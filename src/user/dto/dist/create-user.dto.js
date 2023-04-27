@@ -7,20 +7,37 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 exports.__esModule = true;
 exports.CreateUserDto = void 0;
+var swagger_1 = require("@nestjs/swagger");
 var class_validator_1 = require("class-validator");
 var CreateUserDto = /** @class */ (function () {
     function CreateUserDto() {
     }
     __decorate([
-        class_validator_1.IsNotEmpty()
+        class_validator_1.IsNotEmpty(),
+        swagger_1.ApiProperty({
+            description: 'felhasználó név: kötelező megadni',
+            type: 'string'
+        })
     ], CreateUserDto.prototype, "username");
     __decorate([
-        class_validator_1.IsNotEmpty()
+        class_validator_1.IsNotEmpty(),
+        swagger_1.ApiProperty({
+            description: 'jelszó: kötelező megadni',
+            type: 'string'
+        })
     ], CreateUserDto.prototype, "password");
     __decorate([
         class_validator_1.IsNotEmpty(),
-        class_validator_1.IsEmail()
+        class_validator_1.IsEmail(),
+        swagger_1.ApiProperty({
+            description: 'Email cím: Kötelező megadni és email cím kell hogy legyen'
+        })
     ], CreateUserDto.prototype, "email");
+    __decorate([
+        swagger_1.ApiProperty({
+            description: 'profilkép: Alapértelmezett értéket kap, updateProfile függvényen lehet frissíteni'
+        })
+    ], CreateUserDto.prototype, "profile_pic");
     return CreateUserDto;
 }());
 exports.CreateUserDto = CreateUserDto;

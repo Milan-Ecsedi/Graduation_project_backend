@@ -12,6 +12,7 @@ exports.__esModule = true;
 exports.AppliedUserController = void 0;
 var common_1 = require("@nestjs/common");
 var passport_1 = require("@nestjs/passport");
+var swagger_1 = require("@nestjs/swagger");
 var AppliedUserController = /** @class */ (function () {
     function AppliedUserController(appliedUserService) {
         this.appliedUserService = appliedUserService;
@@ -25,49 +26,62 @@ var AppliedUserController = /** @class */ (function () {
     AppliedUserController.prototype.CheckUser = function (req, id) {
         return this.appliedUserService.isAlreadyJoined(req.user, +id);
     };
-    AppliedUserController.prototype.findOne = function (id) {
-        return this.appliedUserService.findOne(+id);
-    };
+    // @Get(':id')
+    // findOne(@Param('id') id: string) {
+    //   return this.appliedUserService.findOne(+id);
+    // }
     AppliedUserController.prototype.findAllCourseByUser = function (req) {
-        console.log("szoszi");
         return this.appliedUserService.findAllCourseByUser(req.user);
-    };
-    AppliedUserController.prototype.update = function (id, updateAppliedUserDto) {
-        return this.appliedUserService.update(+id, updateAppliedUserDto);
-    };
-    AppliedUserController.prototype.remove = function (id) {
-        return this.appliedUserService.remove(+id);
     };
     __decorate([
         common_1.UseGuards(passport_1.AuthGuard('bearer')),
         common_1.Post('join'),
+        swagger_1.ApiOperation({
+            description: 'csatlakoztatja a felhasználót a kurzushoz'
+        }),
+        swagger_1.ApiConflictResponse({
+            description: 'Ha már a felhasználó csatlakozva van a kurzusra'
+        }),
+        swagger_1.ApiUnauthorizedResponse({
+            description: 'Ha nincs társítva felhasználói token'
+        }),
+        swagger_1.ApiNotFoundResponse({
+            description: 'Ha nincs kurzus a társított azonosítóval'
+        }),
         __param(0, common_1.Request()), __param(1, common_1.Body())
     ], AppliedUserController.prototype, "create");
     __decorate([
-        common_1.Get('list')
+        common_1.Get('list'),
+        swagger_1.ApiOperation({
+            description: 'Ki listázza az összes felhasználót és a hozzá tartozó kurzust'
+        })
     ], AppliedUserController.prototype, "findAll");
     __decorate([
         common_1.UseGuards(passport_1.AuthGuard('bearer')),
         common_1.Get('isJoined/:id'),
+        swagger_1.ApiOperation({
+            description: 'Ellenörzi hogy a felhasználó csatlakozva van-e a kurzusra'
+        }),
+        swagger_1.ApiParam({
+            name: 'id',
+            description: 'A kurzus azonosítója'
+        }),
+        swagger_1.ApiUnauthorizedResponse({
+            description: 'Ha nincs társítva felhasználói token'
+        }),
         __param(0, common_1.Request()), __param(1, common_1.Param('id'))
     ], AppliedUserController.prototype, "CheckUser");
     __decorate([
-        common_1.Get(':id'),
-        __param(0, common_1.Param('id'))
-    ], AppliedUserController.prototype, "findOne");
-    __decorate([
         common_1.UseGuards(passport_1.AuthGuard('bearer')),
         common_1.Get(),
+        swagger_1.ApiOperation({
+            description: 'Ki keresi a felhasználó kurzusait amire jelentkezett'
+        }),
+        swagger_1.ApiUnauthorizedResponse({
+            description: 'Ha nincs társítva felhasználói token'
+        }),
         __param(0, common_1.Request())
     ], AppliedUserController.prototype, "findAllCourseByUser");
-    __decorate([
-        common_1.Patch(':id'),
-        __param(0, common_1.Param('id')), __param(1, common_1.Body())
-    ], AppliedUserController.prototype, "update");
-    __decorate([
-        common_1.Delete(':id'),
-        __param(0, common_1.Param('id'))
-    ], AppliedUserController.prototype, "remove");
     AppliedUserController = __decorate([
         common_1.Controller('applied-user')
     ], AppliedUserController);

@@ -7,12 +7,17 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 exports.__esModule = true;
 exports.isJoinedDto = void 0;
+var swagger_1 = require("@nestjs/swagger");
 var class_validator_1 = require("class-validator");
 var isJoinedDto = /** @class */ (function () {
     function isJoinedDto() {
     }
     __decorate([
-        class_validator_1.IsBoolean()
+        class_validator_1.IsBoolean(),
+        swagger_1.ApiProperty({
+            description: 'jelentkezett-e',
+            type: 'boolean'
+        })
     ], isJoinedDto.prototype, "joined");
     return isJoinedDto;
 }());

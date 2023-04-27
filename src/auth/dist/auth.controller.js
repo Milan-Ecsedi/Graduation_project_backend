@@ -51,6 +51,7 @@ var common_1 = require("@nestjs/common");
 var user_entity_1 = require("src/user/entities/user.entity");
 var bcrypt = require("bcrypt");
 var passport_1 = require("@nestjs/passport");
+var swagger_1 = require("@nestjs/swagger");
 var AuthController = /** @class */ (function () {
     function AuthController(dataSource, authService) {
         this.dataSource = dataSource;
@@ -88,11 +89,24 @@ var AuthController = /** @class */ (function () {
     };
     __decorate([
         common_1.Post('login'),
+        swagger_1.ApiOperation({
+            description: 'Bejelentkezteti a felhasználót'
+        }),
+        swagger_1.ApiUnauthorizedResponse({
+            description: 'Ha nem megfelelő email vagy jelszót ad meg'
+        }),
         __param(0, common_1.Body())
     ], AuthController.prototype, "login");
     __decorate([
         common_1.UseGuards(passport_1.AuthGuard('bearer')),
         common_1.Delete('logout'),
+        swagger_1.ApiOperation({
+            description: 'Kijelentkezteti a felhasználót'
+        }),
+        swagger_1.ApiHeader({
+            name: 'authHeader',
+            description: 'Felhasználói token'
+        }),
         __param(0, common_1.Headers('authorization'))
     ], AuthController.prototype, "async");
     AuthController = __decorate([

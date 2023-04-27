@@ -17,41 +17,50 @@ export default class Course {
   AppliedCourse: AppliedUser[];
 
   /**
-   * A kurzus név
+   * név
    */
   @Column()
   name: string;
 
   /**
-   * leírása a kurzusnak, ide kerülnek a részletek
+   * rövid leírás
    */
   @Column()
   description: string;
 
   /**
-   * A boritó kép url-je, a mérete mindegy mert be van álítva fixre
+   * A boritó kép url-je
    */
   @Column()
   cphoto: string;
 
   /**
-   * A tantárgy, Matematika, történelem, fizika stb...
+   * tantárgy
    */
   @Column()
   subject: string;
 
   /**
-   * témája, másodfokú egyenlet, 1900-as évek történelme, egyenes arányú gyorsaság stb...
+   * téma
    */
   @Column()
   topic: string;
 
+  /**
+   * Részletes leírás,
+   */
   @Column('longtext')
   details: string;
 
+  /**
+   * kurzus csomag url-je
+   */
   @Column()
   file_url: string;
 
+  /**
+   * lejárati ideje 
+   */
   @Column()
   deadline: string;
 }

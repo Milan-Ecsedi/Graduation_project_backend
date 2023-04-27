@@ -1,40 +1,65 @@
+import { ApiProperty } from '@nestjs/swagger';
 import { IsNotEmpty, IsOptional, IsUrl } from 'class-validator';
 
-/**
- * Egy kurzus regisztrálására alkalmas validáció osztály
- */
+
 export class CreateCourseDto {
-  /**
-   * Kurzus név, kötelező
-   */
+  
+
   @IsNotEmpty()
+  @ApiProperty({
+
+    description: 'A Kurzus megnevezése, kötelező megadni',
+    type: 'string'
+    })
   name: string;
 
-  /**
-   * Kurzus leírása, kötelező
-   */
+  
   @IsNotEmpty()
+  @ApiProperty({
+    description: 'Kurzus rövid leírása, kötelező megadni',
+    type:'string'
+  })
   description: string;
 
-  /**
-   * Borito kép, opcionális
-   */
-
+  
+  @ApiProperty({
+    description: 'Borító kép url-je, opcionális',
+    type:'string'
+  })
   cphoto: string;
 
   @IsNotEmpty()
+  @ApiProperty({
+    description: 'Tantárgy, kötelző megadni',
+    type: 'string'
+  })
   subject: string;
 
   @IsNotEmpty()
+  @ApiProperty({
+    description:'témakőr az adott tantárgyon belül',
+    type: 'string'
+  })
   topic: string;
 
-   @IsOptional()
+   @ApiProperty({
+    description:'Kurzus részletes leírása, opcionális',
+    type: 'string'
+   })
    details: string;
 
    @IsNotEmpty()
    @IsUrl()
+   @ApiProperty({
+    description: 'Kurzus csomag url link-je , kötelező',
+    type: 'string'
+   })
    file_url: string;
 
    @IsNotEmpty()
+   @ApiProperty({
+    description:'Kurzus Lejárati ideje',
+    type: 'string'
+   })
    deadline: string;
 }

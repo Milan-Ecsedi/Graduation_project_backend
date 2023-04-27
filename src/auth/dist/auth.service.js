@@ -50,6 +50,11 @@ var AuthService = /** @class */ (function () {
     function AuthService(dataSource) {
         this.dataSource = dataSource;
     }
+    /**
+     * Kikeresi a felhasználót token alapján
+     * @param token felhasználói token
+     * @returns token alapján megtalált felhasználót
+     */
     AuthService.prototype.findUserByToken = function (token) {
         return __awaiter(this, void 0, void 0, function () {
             var tokenRepo, tokenObj;
@@ -71,6 +76,11 @@ var AuthService = /** @class */ (function () {
             });
         });
     };
+    /**
+     *
+     * @param user Felhasználó
+     * @returns generált token-t string-ként
+     */
     AuthService.prototype.createToken = function (user) {
         return __awaiter(this, void 0, void 0, function () {
             var tokenGenerate, tokenString, token;
@@ -90,6 +100,10 @@ var AuthService = /** @class */ (function () {
             });
         });
     };
+    /**
+     * Kitörli a megadott token-t
+     * @param token felhasználó token-je
+     */
     AuthService.prototype.logout = function (token) {
         return __awaiter(this, void 0, void 0, function () {
             var tokenRepo, tokenObj;

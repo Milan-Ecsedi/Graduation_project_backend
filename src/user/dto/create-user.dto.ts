@@ -1,27 +1,35 @@
+import { ApiProperty } from "@nestjs/swagger";
 import { IsNotEmpty, IsEmail, IsUrl} from "class-validator";
 
 export class CreateUserDto {
-    /**
-   * név, nem lehet üres
-   */
+   
   @IsNotEmpty()
+  @ApiProperty({
+    description:'felhasználó név: kötelező megadni',
+    type:'string'
+  })
   username: string;
 
-  /**
-   * Jelszó: nem lehet üres. Nincs rajta IsStrongPassword egyenlőre
-   */
+  
   @IsNotEmpty()
+  @ApiProperty({
+    description:'jelszó: kötelező megadni',
+    type:'string'
+  })
   password: string;
 
 
-  /**
-   * Email cím: Csak akkor fogad el ha nem üres a mező és megfelelő email cím pl: example@gmail.com
-   */
+  
   @IsNotEmpty()
   @IsEmail()
+  @ApiProperty({
+    description:'Email cím: Kötelező megadni és email cím kell hogy legyen'
+  })
   email:string;
 
-  
+  @ApiProperty({
+    description:'profilkép: Alapértelmezett értéket kap, updateProfile függvényen lehet frissíteni'
+  })
   profile_pic:string;
 
 }

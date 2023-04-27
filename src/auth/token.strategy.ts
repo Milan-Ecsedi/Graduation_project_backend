@@ -9,6 +9,11 @@ constructor(private authService:AuthService){
     super();
 }
 
+/**
+ * Validálja a felhasználót, ha nem talál olyan felhasználót hibát dob
+ * @param token felhasználói token
+ * @returns Felhasználó
+ */
 async validate(token:string){
 const user=this.authService.findUserByToken(token);
 if(user===null){

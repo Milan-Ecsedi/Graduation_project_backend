@@ -51,6 +51,10 @@ var UserService = /** @class */ (function () {
         this.dataSource = dataSource;
         this.appService = appService;
     }
+    /**
+     * Regisztrál egy felhasználót
+     * @param createUserDto user típusú objektum
+     */
     UserService.prototype.create = function (createUserDto) {
         return __awaiter(this, void 0, void 0, function () {
             var userRepo, IsEmailUsed, IsEmail, user, _a;
@@ -68,7 +72,7 @@ var UserService = /** @class */ (function () {
                           throw new BadRequestException('Nem megfelelő E-mail cím')
                         }*/
                         if (IsEmailUsed) {
-                            throw new common_1.BadRequestException('Az E-mail már regisztrálva van');
+                            throw new common_1.BadRequestException('Az E-mail cím már regisztrálva van');
                         }
                         user = new user_entity_1["default"]();
                         user.username = createUserDto.username;
@@ -84,6 +88,10 @@ var UserService = /** @class */ (function () {
             });
         });
     };
+    /**
+     *
+     * @returns Felhasználókat tömbként
+     */
     UserService.prototype.findAll = function () {
         return __awaiter(this, void 0, void 0, function () {
             var userRepo, users;
@@ -98,34 +106,22 @@ var UserService = /** @class */ (function () {
             });
         });
     };
-    UserService.prototype.findOne = function (id) {
-        return "This action returns a #" + id + " user";
-    };
-    UserService.prototype.update = function (id, updateUserDto) {
-        return __awaiter(this, void 0, void 0, function () {
-            var userRepo, user, userToUpdate;
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0:
-                        userRepo = this.dataSource.getRepository(user_entity_1["default"]);
-                        return [4 /*yield*/, userRepo.findOneBy({ id: id })];
-                    case 1:
-                        user = _a.sent();
-                        if (!user) {
-                            throw new common_1.BadRequestException('Ilyen id-val nem található felhasználó');
-                        }
-                        return [4 /*yield*/, userRepo.findOneBy({ id: id })];
-                    case 2:
-                        userToUpdate = _a.sent();
-                        userToUpdate.username = user.username;
-                        userToUpdate.password = user.password;
-                        userToUpdate.profile_pic = updateUserDto.profile_pic;
-                        userRepo.save(userToUpdate);
-                        return [2 /*return*/];
-                }
-            });
-        });
-    };
+    // async update(id: number, updateUserDto: UpdateUserDto) {
+    //   const userRepo = this.dataSource.getRepository(User);
+    //   const user= await  userRepo.findOneBy({ id: id })
+    //   if (!user) {
+    //     throw new BadRequestException('Ilyen id-val nem található felhasználó');
+    //   }
+    //   const userToUpdate = await userRepo.findOneBy({ id });
+    //   userToUpdate.username = user.username;
+    //   userToUpdate.password = user.password;
+    //   userToUpdate.profile_pic = updateUserDto.profile_pic;
+    //   userRepo.save(userToUpdate);
+    // }
+    /**
+     * Kitörli a felhasználót a megadott azonosító alapján
+     * @param id Felhasználó azonosítója
+     */
     UserService.prototype.remove = function (id) {
         return __awaiter(this, void 0, void 0, function () {
             var userRepo;
@@ -147,6 +143,11 @@ var UserService = /** @class */ (function () {
             });
         });
     };
+    /**
+     * Frissíti a felhasználó profilképét
+     * @param req felhasználó tokenje alapján kikeresett felhasználó
+     * @param profile_pic profilkép url-je
+     */
     UserService.prototype.updateProfilePic = function (req, profile_pic) {
         return __awaiter(this, void 0, void 0, function () {
             var userRepo, user;

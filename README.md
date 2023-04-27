@@ -1,44 +1,54 @@
-# What our backend can do
+# Description
 
-It is our backend which connected to our graduation projects.
-This backend able for the CRUD operations.
-See the endpoints down below.
+a backend application coded in Nest.js, made for our graduation projects.
 
-## Endpoints
+## Requirements
+-NodeJS 18.16 or higher (LTS)
+-MySQL/MariaDB
 
-For the course:
+## Install
+
 ```bash
-# Creating a course
-http://localhost:3000/course/create
-
-# Listing the courses
-http://localhost:3000/course/list
-
-# Find one by id
-http://localhost:3000/course/search/:id
-
-# Delete by id
-http://localhost:3000/course/delete/:id
+# For npm
+ $ npm install
 ```
-For the users:
+
+## Running the app
+
 ```bash
+# usual mode
+$ npm run start
 
-# Registration
-http://localhost:3000/user/register
+# development mode
+$ npm run start:dev
 
-# Listing the users
-http://localhost:3000/user/list
-
-# Find one by id 
-http://localhost:3000/user/search/:id
-
-# Update or insert by id
-http://localhost:3000/user/update/:id
-
-# Delete by id
-http://localhost:3000/user/delete/:id
+# production mode
+$ npm run start:prod
 ```
-We recommend you to use Thunder Client for checking the endpoints if you are using Visual Studio:Code
+
+## Test
+
+```bash
+# unit tests
+$ npm run test
+```
+
+## Using the .env file
+
+Rename your .env.example file and change it if necessary
+
+```bash
+$ PORT=3000             #the application will run on this port
+$ DB_HOST=localhost     #the database will run on this server
+$ DB_PORT=              #the database will listen on this port, if its empty, the default port is 3306(My SQL default port)
+$ DB_USERNAME=root      #username for the database
+$ DB_PASSWORD=          #password for the database
+$ DB_DATABASE=database  #database name, change it if its necessary for your own
+```
+
+
+Recommended to use Thunder Client for checking the endpoints, if you using Visual Studio:Code
+
 # Nest things
 
 If you are not familiar with Nest.js, then see it down below.
@@ -80,31 +90,7 @@ If you are not familiar with Nest.js, then see it down below.
 $ npm install
 ```
 
-## Running the app
 
-```bash
-# development
-$ npm run start
-
-# watch mode
-$ npm run start:dev
-
-# production mode
-$ npm run start:prod
-```
-
-## Test
-
-```bash
-# unit tests
-$ npm run test
-
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
-```
 
 ## Support
 

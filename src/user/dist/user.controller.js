@@ -12,6 +12,7 @@ exports.__esModule = true;
 exports.UserController = void 0;
 var common_1 = require("@nestjs/common");
 var passport_1 = require("@nestjs/passport");
+var swagger_1 = require("@nestjs/swagger");
 var UserController = /** @class */ (function () {
     function UserController(userService) {
         this.userService = userService;
@@ -22,12 +23,9 @@ var UserController = /** @class */ (function () {
     UserController.prototype.findAll = function () {
         return this.userService.findAll();
     };
-    UserController.prototype.findOne = function (id) {
-        return this.userService.findOne(+id);
-    };
-    UserController.prototype.update = function (id, updateUserDto) {
-        return this.userService.update(+id, updateUserDto);
-    };
+    /*update(@Param('id') id: string, @Body() updateUserDto: UpdateUserDto) {
+      return this.userService.update(+id, updateUserDto);
+    }*/
     UserController.prototype.remove = function (id) {
         return this.userService.remove(+id);
     };
@@ -39,31 +37,59 @@ var UserController = /** @class */ (function () {
     };
     __decorate([
         common_1.Post('register'),
+        swagger_1.ApiOperation({
+            description: 'Létrehoz egy felhasználót ha az adatok átmentek a validációkon'
+        }),
+        swagger_1.ApiBadRequestResponse({
+            description: 'Ha van már a megadott email címmel felhasználó'
+        }),
         __param(0, common_1.Body())
     ], UserController.prototype, "create");
     __decorate([
-        common_1.Get('list')
+        common_1.Get('list'),
+        swagger_1.ApiOperation({
+            description: 'Ki listázza az összes felhasználót'
+        })
     ], UserController.prototype, "findAll");
     __decorate([
-        common_1.Get('search/:id'),
-        __param(0, common_1.Param('id'))
-    ], UserController.prototype, "findOne");
-    __decorate([
-        common_1.Patch('update/:id'),
-        __param(0, common_1.Param('id')), __param(1, common_1.Body())
-    ], UserController.prototype, "update");
-    __decorate([
         common_1.Delete('delete/:id'),
+        swagger_1.ApiOperation({
+            description: 'Kitörli a felhasználót'
+        }),
+        swagger_1.ApiParam({
+            name: 'id',
+            description: 'A felhasználó azonosítója'
+        }),
         __param(0, common_1.Param('id'))
     ], UserController.prototype, "remove");
     __decorate([
         common_1.UseGuards(passport_1.AuthGuard('bearer')),
         common_1.Get('profile'),
+        swagger_1.ApiOperation({
+            description: 'Ki keresi a felhasználót és vissza adja a publikus adatait'
+        }),
+        swagger_1.ApiHeader({
+            name: 'req',
+            description: 'A felhasználó token-je alapján vissza kapott req.user'
+        }),
+        swagger_1.ApiUnauthorizedResponse({
+            description: 'Ha nincs társítva felhasználói token'
+        }),
         __param(0, common_1.Request())
     ], UserController.prototype, "findProfile");
     __decorate([
         common_1.UseGuards(passport_1.AuthGuard('bearer')),
         common_1.Patch('updateProfile'),
+        swagger_1.ApiOperation({
+            description: 'Frissíti a felhasználó profilképét'
+        }),
+        swagger_1.ApiHeader({
+            name: 'req',
+            description: 'A felhasználó token-je alapján vissza kapott req.user'
+        }),
+        swagger_1.ApiUnauthorizedResponse({
+            description: 'Ha nincs társítva felhasználói token'
+        }),
         __param(0, common_1.Request()), __param(1, common_1.Body())
     ], UserController.prototype, "updateProfilePic");
     UserController = __decorate([

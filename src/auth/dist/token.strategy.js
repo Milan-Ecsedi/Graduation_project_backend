@@ -65,6 +65,11 @@ var TokenStrategy = /** @class */ (function (_super) {
         _this.authService = authService;
         return _this;
     }
+    /**
+     * Validálja a felhasználót, ha nem talál olyan felhasználót hibát dob
+     * @param token felhasználói token
+     * @returns Felhasználó
+     */
     TokenStrategy.prototype.validate = function (token) {
         return __awaiter(this, void 0, void 0, function () {
             var user;

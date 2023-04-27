@@ -52,12 +52,12 @@ function bootstrap() {
                 case 1:
                     app = _a.sent();
                     config = new swagger_1.DocumentBuilder()
-                        .setTitle('The Course')
-                        .setDescription('The cats API description')
-                        .addTag('cats')
+                        .setTitle('A Gritos Kurzus applikáció dokumentációja')
+                        .setDescription('Az app Api leírása')
+                        .addTag('')
                         .build();
                     document = swagger_1.SwaggerModule.createDocument(app, config);
-                    swagger_1.SwaggerModule.setup('api', app, document);
+                    swagger_1.SwaggerModule.setup('doc', app, document);
                     app.enableCors({
                         origin: '*',
                         methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',

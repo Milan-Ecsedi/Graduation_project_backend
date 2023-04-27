@@ -13,13 +13,6 @@ var AppController = /** @class */ (function () {
         this.appService = appService;
         this.dataSource = dataSource;
     }
-    AppController.prototype.index = function () {
-        return {};
-    };
-    __decorate([
-        common_1.Get(),
-        common_1.Render('index')
-    ], AppController.prototype, "index");
     AppController = __decorate([
         common_1.Controller()
     ], AppController);

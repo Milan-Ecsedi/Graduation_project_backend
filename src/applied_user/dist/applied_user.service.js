@@ -51,9 +51,14 @@ var AppliedUserService = /** @class */ (function () {
     function AppliedUserService(dataSource) {
         this.dataSource = dataSource;
     }
+    /**
+     * Jelentkezteti a felhasználót a kurzusra
+     * @param user Felhasználó
+     * @param id kurzus azonosítója
+     */
     AppliedUserService.prototype.create = function (user, id) {
         return __awaiter(this, void 0, void 0, function () {
-            var courseRepo, appliedRepo, course, appliedUser;
+            var courseRepo, appliedRepo, matchedCourse, isapplied, appliedUser;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -61,10 +66,19 @@ var AppliedUserService = /** @class */ (function () {
                         appliedRepo = this.dataSource.getRepository(applied_user_entity_1["default"]);
                         return [4 /*yield*/, courseRepo.findOne({ where: { id: id } })];
                     case 1:
-                        course = _a.sent();
+                        matchedCourse = _a.sent();
+                        return [4 /*yield*/, appliedRepo.findOne({ where: { user: user, course: matchedCourse } })];
+                    case 2:
+                        isapplied = _a.sent();
+                        if (isapplied) {
+                            throw new common_1.ConflictException({ message: "Már jelentkezve vagy a kurzusra" });
+                        }
+                        if (matchedCourse) {
+                            throw new common_1.NotFoundException({ message: 'Nincs ilyen kurzus' });
+                        }
                         appliedUser = new applied_user_entity_1["default"];
                         appliedUser.user = user;
-                        appliedUser.course = course;
+                        appliedUser.course = matchedCourse;
                         appliedUser.apply_date = new Date();
                         appliedRepo.save(appliedUser);
                         return [2 /*return*/];
@@ -72,6 +86,10 @@ var AppliedUserService = /** @class */ (function () {
             });
         });
     };
+    /**
+     *
+     * @returns jelentkezett felhasználókat tömbben
+     */
     AppliedUserService.prototype.findAll = function () {
         return __awaiter(this, void 0, void 0, function () {
             var appliedRepo, appliedcourses;
@@ -87,7 +105,12 @@ var AppliedUserService = /** @class */ (function () {
             });
         });
     };
-    AppliedUserService.prototype.findOne = function (id) { };
+    /**
+     *
+     * @param req Felhasználó
+     * @param id kurzus azonosító
+     * @returns csatlakozva van-e, true vagy false
+     */
     AppliedUserService.prototype.isAlreadyJoined = function (req, id) {
         return __awaiter(this, void 0, void 0, function () {
             var appliedRepo, courseRepo, course, appliedcourse, isjoined;
@@ -107,17 +130,20 @@ var AppliedUserService = /** @class */ (function () {
                         isjoined = new isjoined_dto_1.isJoinedDto;
                         if (appliedcourse === null) {
                             isjoined.joined = false;
-                            return [2 /*return*/, isjoined];
                         }
                         else {
                             isjoined.joined = true;
-                            return [2 /*return*/, isjoined];
                         }
-                        return [2 /*return*/];
+                        return [2 /*return*/, isjoined];
                 }
             });
         });
     };
+    /**
+     *
+     * @param req Felhasználó
+     * @returns Felhasználó jelentkezett kurzusait tömbben
+     */
     AppliedUserService.prototype.findAllCourseByUser = function (req) {
         return __awaiter(this, void 0, void 0, function () {
             var appliedRepo, appliedcourses;
@@ -132,12 +158,6 @@ var AppliedUserService = /** @class */ (function () {
                 }
             });
         });
-    };
-    AppliedUserService.prototype.update = function (id, updateAppliedUserDto) {
-        return "This action updates a #" + id + " appliedUser";
-    };
-    AppliedUserService.prototype.remove = function (id) {
-        return "This action removes a #" + id + " appliedUser";
     };
     AppliedUserService = __decorate([
         common_1.Injectable()

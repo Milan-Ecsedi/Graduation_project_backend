@@ -8,6 +8,10 @@ import { UpdateCourseDto } from './dto/update-course.dto';
 export class CourseService {
   constructor(private dataSource: DataSource) {}
 
+  /**
+   * Létrehoz egy kurzust
+   * @param createCourseDto Kurzus tipusú objektum
+   */
   async create(createCourseDto: CreateCourseDto) {
     const courseRepo = await this.dataSource.getRepository(Course);
     const course = new Course();
@@ -22,18 +26,32 @@ export class CourseService {
     courseRepo.save(course);
   }
 
+  /**
+   * Ki keresi az összes kurzust
+   * @returns kurzusból álló tömb
+   */
   async findAll() {
     const CourseRepo = this.dataSource.getRepository(Course);
     const courses = CourseRepo.find();
     return courses;
   }
 
+  /**
+   * Ki keresi azonositó alapján a kurzust
+   * @param id kurzus azonosítója
+   * @returns egy kurzust
+   */
   findOne(id: number) {
     const CourseRepo = this.dataSource.getRepository(Course);
     const course = CourseRepo.find({ where: { id: id } });
     return course;
   }
 
+  /**
+   * 
+   * @param id kurzus azonosítója
+   * @param updateCourseDto Kurzus tipusú objektum
+   */
   async update(id: number, updateCourseDto: UpdateCourseDto) {
     const courseRepo = this.dataSource.getRepository(Course);
     if (!(await courseRepo.findOneBy({ id: id }))) {
@@ -52,6 +70,10 @@ export class CourseService {
     courseRepo.save(courseToUpdate);
   }
 
+  /**
+   * Kitörli a kurzust azonosítója alapján
+   * @param id kurzus azonosítója
+   */
   async remove(id: number) {
     const courseRepo = await this.dataSource.getRepository(Course);
     courseRepo.delete(id);

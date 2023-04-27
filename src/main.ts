@@ -17,12 +17,12 @@ async function bootstrap() {
   */
 
      const config = new DocumentBuilder()
-     .setTitle('The Course')
-     .setDescription('The cats API description')
-     .addTag('cats')
+     .setTitle('A Gritos Kurzus applikáció dokumentációja')
+     .setDescription('Az app Api leírása')
+     .addTag('')
      .build();
    const document = SwaggerModule.createDocument(app, config);
-   SwaggerModule.setup('api', app, document);
+   SwaggerModule.setup('doc', app, document);
 
 
   app.enableCors({

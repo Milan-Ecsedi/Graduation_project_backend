@@ -49,6 +49,10 @@ var CourseService = /** @class */ (function () {
     function CourseService(dataSource) {
         this.dataSource = dataSource;
     }
+    /**
+     * Létrehoz egy kurzust
+     * @param createCourseDto Kurzus tipusú objektum
+     */
     CourseService.prototype.create = function (createCourseDto) {
         return __awaiter(this, void 0, void 0, function () {
             var courseRepo, course;
@@ -72,6 +76,10 @@ var CourseService = /** @class */ (function () {
             });
         });
     };
+    /**
+     * Ki keresi az összes kurzust
+     * @returns kurzusból álló tömb
+     */
     CourseService.prototype.findAll = function () {
         return __awaiter(this, void 0, void 0, function () {
             var CourseRepo, courses;
@@ -82,11 +90,21 @@ var CourseService = /** @class */ (function () {
             });
         });
     };
+    /**
+     * Ki keresi azonositó alapján a kurzust
+     * @param id kurzus azonosítója
+     * @returns egy kurzust
+     */
     CourseService.prototype.findOne = function (id) {
         var CourseRepo = this.dataSource.getRepository(course_entity_1["default"]);
         var course = CourseRepo.find({ where: { id: id } });
         return course;
     };
+    /**
+     *
+     * @param id kurzus azonosítója
+     * @param updateCourseDto Kurzus tipusú objektum
+     */
     CourseService.prototype.update = function (id, updateCourseDto) {
         return __awaiter(this, void 0, void 0, function () {
             var courseRepo, courseToUpdate;
@@ -97,7 +115,7 @@ var CourseService = /** @class */ (function () {
                         return [4 /*yield*/, courseRepo.findOneBy({ id: id })];
                     case 1:
                         if (!(_a.sent())) {
-                            throw new common_1.BadRequestException('Ilyen id-val nem található ');
+                            throw new common_1.BadRequestException('Ilyen id-val nem található kurzus');
                         }
                         return [4 /*yield*/, courseRepo.findOneBy({ id: id })];
                     case 2:
@@ -116,6 +134,10 @@ var CourseService = /** @class */ (function () {
             });
         });
     };
+    /**
+     * Kitörli a kurzust azonosítója alapján
+     * @param id kurzus azonosítója
+     */
     CourseService.prototype.remove = function (id) {
         return __awaiter(this, void 0, void 0, function () {
             var courseRepo;

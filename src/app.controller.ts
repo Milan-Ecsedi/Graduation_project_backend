@@ -20,10 +20,4 @@ export class AppController {
 
     private dataSource: DataSource,
   ) {}
-
-  @Get()
-  @Render('index')
-  index() {
-    return {};
-  }
 }

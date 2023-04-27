@@ -6,15 +6,24 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 exports.__esModule = true;
+var swagger_1 = require("@nestjs/swagger");
 var class_validator_1 = require("class-validator");
 var LoginDto = /** @class */ (function () {
     function LoginDto() {
     }
     __decorate([
-        class_validator_1.IsNotEmpty()
+        class_validator_1.IsNotEmpty(),
+        swagger_1.ApiProperty({
+            description: 'Email: Kötelező kitölteni',
+            type: 'string'
+        })
     ], LoginDto.prototype, "email");
     __decorate([
-        class_validator_1.IsNotEmpty()
+        class_validator_1.IsNotEmpty(),
+        swagger_1.ApiProperty({
+            description: 'jelszó: kötelező kitölteni',
+            type: 'string'
+        })
     ], LoginDto.prototype, "password");
     return LoginDto;
 }());
