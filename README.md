@@ -3,7 +3,7 @@
 a backend application coded in Nest.js, made for our graduation projects.
 
 ## Requirements
--NodeJS 18.16 or higher (LTS)
+-NodeJS 18.16(LTS) or higher <br>
 -MySQL/MariaDB
 
 ## Install
@@ -29,7 +29,6 @@ $ npm run start:prod
 ## Test
 
 ```bash
-# unit tests
 $ npm run test
 ```
 
@@ -43,7 +42,7 @@ $ DB_HOST=localhost     #the database will run on this server
 $ DB_PORT=              #the database will listen on this port, if its empty, the default port is 3306(My SQL default port)
 $ DB_USERNAME=root      #username for the database
 $ DB_PASSWORD=          #password for the database
-$ DB_DATABASE=database  #database name, change it if its necessary for your own
+$ DB_DATABASE=course_db  #database name, change it if its necessary for your own
 ```
 
 
