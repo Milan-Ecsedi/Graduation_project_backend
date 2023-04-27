@@ -1,6 +1,6 @@
-<p align="center">
+<!-- <p align="center">
  <img src="Graduation_project_backend\src\gritos_logo.png">
-</p>
+</p> -->
 
 # Description
 
