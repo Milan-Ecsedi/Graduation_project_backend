@@ -1,3 +1,7 @@
+<p align="center">
+ <img src="https://drive.google.com/file/d/1D4Maa4urru6Q8XNVuUO_fg2uSy9vkY1J/view?usp=sharing">
+</p>
+
 # Description
 
 A backend application coded in Nest.js, made for our graduation projects which is a course learning multiplatform application.
