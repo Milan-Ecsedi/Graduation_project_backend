@@ -1,6 +1,6 @@
 # Description
 
-a backend application coded in Nest.js, made for our graduation projects.
+A backend application coded in Nest.js, made for our graduation projects which is a course learning multiplatform application.
 
 ## Requirements
 -NodeJS 18.16(LTS) or higher <br>
@@ -37,12 +37,12 @@ $ npm run test
 Rename your .env.example file and change it if necessary
 
 ```bash
-$ PORT=3000             #the application will run on this port
-$ DB_HOST=localhost     #the database will run on this server
-$ DB_PORT=              #the database will listen on this port, if its empty, the default port is 3306(My SQL default port)
-$ DB_USERNAME=root      #username for the database
-$ DB_PASSWORD=          #password for the database
-$ DB_DATABASE=course_db  #database name, change it if its necessary for your own
+ PORT=3000             #the application will run on this port
+ DB_HOST=localhost     #the database will run on this server
+ DB_PORT=              #the database will listen on this port, if its empty, the default port is 3306(My SQL default port)
+ DB_USERNAME=root      #username for the database
+ DB_PASSWORD=          #password for the database
+ DB_DATABASE=course_db #database name, change it if its necessary for your own
 ```
 
 
