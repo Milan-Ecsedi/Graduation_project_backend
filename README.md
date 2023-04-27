@@ -1,5 +1,5 @@
 <p align="center">
- <img src="https://drive.google.com/file/d/1D4Maa4urru6Q8XNVuUO_fg2uSy9vkY1J/view?usp=sharing">
+ <img src="Graduation_project_backend\src\gritos_logo.png">
 </p>
 
 # Description
