@@ -61,10 +61,11 @@ Recommended to use Thunder Client for checking the endpoints, if you using Visua
 # Other apps which uses this backend
 
 [Gritos Frontend](https://github.com/Ferret-operator/graduation-project-frontend)
-### By Ecsedi Milán
- <br>
+> Frontend developer: [Ecsedi Milán](https://github.com/Ferret-operator)
+
 [Gritos Desktop](https://github.com/Gentoris/Graduation_project_desktop)
 
+> desktop developer: [Kerecsényi Márk](https://github.com/Gentoris)
 
 # Nest things
 
