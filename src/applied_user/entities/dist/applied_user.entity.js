@@ -19,10 +19,14 @@ var AppliedUser = /** @class */ (function () {
         typeorm_1.PrimaryGeneratedColumn()
     ], AppliedUser.prototype, "id");
     __decorate([
-        typeorm_1.ManyToOne(function () { return user_entity_1["default"]; }, function (user) { return user.applications; })
+        typeorm_1.ManyToOne(function () { return user_entity_1["default"]; }, function (user) { return user.applications; }, {
+            onDelete: 'CASCADE'
+        })
     ], AppliedUser.prototype, "user");
     __decorate([
-        typeorm_1.ManyToOne(function () { return course_entity_1["default"]; }, function (course) { return course.AppliedCourse; })
+        typeorm_1.ManyToOne(function () { return course_entity_1["default"]; }, function (course) { return course.AppliedCourse; }, {
+            onDelete: 'CASCADE'
+        })
     ], AppliedUser.prototype, "course");
     __decorate([
         typeorm_1.Column('date')

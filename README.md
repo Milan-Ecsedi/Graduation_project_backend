@@ -49,7 +49,7 @@ Rename your .env.example file and change it if necessary
  DB_DATABASE=course_db #database name, change it if its necessary for your own 
 ```
 
-Recommended to use the course_db.sql dump, For examples and its fully configured 
+Recommended to use the [course_db_dump_final.sql](./course_db_dump_final.sql) dump, For examples and its fully configured 
 
 
 

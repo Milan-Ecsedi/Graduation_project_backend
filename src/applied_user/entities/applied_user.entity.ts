@@ -16,11 +16,13 @@ id:number;
 /**
  * Összeköti a többi táblával, lásd course.etity.ts-t és user.entity.ts-t
  */
-@ManyToOne(() => User, (user) => user.applications)
+@ManyToOne(() => User, (user) => user.applications, {
+    onDelete: 'CASCADE'})
 user: User;
 
 
-@ManyToOne(()=> Course,(course)=>course.AppliedCourse)
+@ManyToOne(()=> Course,(course)=>course.AppliedCourse, {
+    onDelete: 'CASCADE'})
 course:Course;
 
 
