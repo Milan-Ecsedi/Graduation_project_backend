@@ -72,7 +72,7 @@ Import the [thunder-collection_Graduation_project_Tests](./thunder-collection_Gr
 [Gritos Frontend](https://github.com/Ferret-operator/graduation-project-frontend)
 > Frontend developer: [Ecsedi Milán](https://github.com/Ferret-operator)
 
-[Gritos Desktop](https://github.com/Gentoris/Graduation_project_desktop)
+[Gritos CourseAdministrator Desktop app](https://github.com/Gentoris/Graduation_project_desktop)
 
 > desktop developer: [Kerecsényi Márk](https://github.com/Gentoris)
 
