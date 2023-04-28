@@ -52,6 +52,11 @@ Rename your .env.example file and change it if necessary
 
 Recommended to use Thunder Client for checking the endpoints, if you using Visual Studio:Code
 
+# Documentation
+
+you can find the documentation on http://localhost:3000/doc (default url address, if the .env DB_HOST and PORT hasnt been changed)
+Written in hungarian
+
 # Nest things
 
 If you are not familiar with Nest.js, then see it down below.
