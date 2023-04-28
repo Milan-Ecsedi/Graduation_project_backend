@@ -52,14 +52,21 @@ Rename your .env.example file and change it if necessary
 
 
 
-# Documentation
+## Documentation
 
 you can find the API documentation on /doc endpoint. <br>
 Open the [./docs/index.html](./docs/index.html) for the developer documentation<br>
 Written in hungarian
 
 Recommended to use Thunder Client for checking the endpoints, if you using Visual Studio:Code
-# Other apps which uses this backend
+
+## Database model
+
+<p align="center">
+<img src="./database_model.png">
+</p>
+
+## Other apps which uses this backend
 
 [Gritos Frontend](https://github.com/Ferret-operator/graduation-project-frontend)
 > Frontend developer: [Ecsedi Milán](https://github.com/Ferret-operator)
