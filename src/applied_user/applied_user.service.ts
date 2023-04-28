@@ -25,7 +25,7 @@ export class AppliedUserService {
     {
       throw new ConflictException({message:"Már jelentkezve vagy a kurzusra"})
     }
-    if(matchedCourse){
+    if(matchedCourse===null){
       throw new NotFoundException({message:'Nincs ilyen kurzus'})
     }
     const appliedUser= new AppliedUser

@@ -73,7 +73,7 @@ var AppliedUserService = /** @class */ (function () {
                         if (isapplied) {
                             throw new common_1.ConflictException({ message: "Már jelentkezve vagy a kurzusra" });
                         }
-                        if (matchedCourse) {
+                        if (matchedCourse === null) {
                             throw new common_1.NotFoundException({ message: 'Nincs ilyen kurzus' });
                         }
                         appliedUser = new applied_user_entity_1["default"];
