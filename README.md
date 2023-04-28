@@ -55,7 +55,7 @@ Rename your .env.example file and change it if necessary
 # Documentation
 
 you can find the API documentation on /doc endpoint. <br>
-Open the [](./docs/index.html) for the developer documentation<br>
+Open the [./docs/index.html](./docs/index.html) for the developer documentation<br>
 Written in hungarian
 
 Recommended to use Thunder Client for checking the endpoints, if you using Visual Studio:Code
