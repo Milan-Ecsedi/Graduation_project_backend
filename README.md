@@ -50,12 +50,21 @@ Rename your .env.example file and change it if necessary
 ```
 
 
-Recommended to use Thunder Client for checking the endpoints, if you using Visual Studio:Code
+
 
 # Documentation
 
-you can find the documentation on /doc endpoint
-Written in hungarian
+you can find the API documentation on /doc endpoint.
+Written in hungarian<br>
+
+Recommended to use Thunder Client for checking the endpoints, if you using Visual Studio:Code
+# Other apps which uses this backend
+
+[Gritos Frontend](https://github.com/Ferret-operator/graduation-project-frontend)
+### By Ecsedi Milán
+ <br>
+[Gritos Desktop](https://github.com/Gentoris/Graduation_project_desktop)
+
 
 # Nest things
 
