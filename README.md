@@ -1,6 +1,6 @@
-<!-- <p align="center">
- <img src="Graduation_project_backend\src\gritos_logo.png">
-</p> -->
+<p align="center">
+ <img src="../src/gritos_logo.png">
+</p>
 
 # Description
 
@@ -54,7 +54,7 @@ Recommended to use Thunder Client for checking the endpoints, if you using Visua
 
 # Documentation
 
-you can find the documentation on http://localhost:3000/doc (default url address, if the .env DB_HOST and PORT hasnt been changed)
+you can find the documentation on /doc endpoint
 Written in hungarian
 
 # Nest things
