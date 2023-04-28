@@ -41,7 +41,7 @@ var UserController = /** @class */ (function () {
             description: 'Létrehoz egy felhasználót ha az adatok átmentek a validációkon'
         }),
         swagger_1.ApiBadRequestResponse({
-            description: 'Ha van már a megadott email címmel felhasználó'
+            description: 'Ha már van a megadott email címmel felhasználó'
         }),
         __param(0, common_1.Body())
     ], UserController.prototype, "create");

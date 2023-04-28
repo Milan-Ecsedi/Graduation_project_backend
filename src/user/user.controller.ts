@@ -14,7 +14,7 @@ export class UserController {
     description: 'Létrehoz egy felhasználót ha az adatok átmentek a validációkon'
   })
   @ApiBadRequestResponse({
-    description:'Ha van már a megadott email címmel felhasználó'
+    description:'Ha már van a megadott email címmel felhasználó'
   })
   create(@Body() createUserDto: CreateUserDto) {
     return this.userService.create(createUserDto);

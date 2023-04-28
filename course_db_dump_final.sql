@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Gép: 127.0.0.1
--- Létrehozás ideje: 2023. Ápr 20. 12:12
+-- Létrehozás ideje: 2023. Ápr 28. 19:03
 -- Kiszolgáló verziója: 10.4.25-MariaDB
 -- PHP verzió: 8.1.10
 
@@ -44,7 +44,6 @@ INSERT INTO `applied_user` (`id`, `apply_date`, `userId`, `courseId`) VALUES
 (14, '2023-04-14', 2, 2),
 (16, '2023-04-16', 3, 2),
 (17, '2023-04-17', 5, 1),
-(18, '2023-04-18', 6, 1),
 (19, '2023-04-18', 5, 5);
 
 -- --------------------------------------------------------
@@ -90,8 +89,7 @@ CREATE TABLE `token` (
 --
 
 INSERT INTO `token` (`token`, `userId`) VALUES
-('2229a07deb29e92b644202c1eeb357ae8a0c26785d97560a515b1e166bf6bbef', 2),
-('67b54f4a9b235b04503c8f87a2544dfae6977e2267342b21f339ce19ef5a92ca', 2);
+('a353c8b0413326aadc9813ad9e44b9791e4b792d14225c6b7398e15de7db3a71', 2);
 
 -- --------------------------------------------------------
 
@@ -115,10 +113,7 @@ INSERT INTO `user` (`id`, `username`, `password`, `email`, `profile_pic`) VALUES
 (1, 'Admin', '$2b$10$k2XcAqoeYSSr8av/eLw87.fwZn8w91AFj.okWhN6cmZxf3vwEQ78.', 'admin@gmail.com', 'https://ps.w.org/protect-admin-account/assets/icon-256x256.png?rev=2705477'),
 (2, 'DogeStudent', '$2b$10$cmY1ub0Y6UHIsVwCSPOHJO4HK49yyzMg4ccgw2HnLfZrA7Dm9cYia', 'dogelearn@gmail.com', 'https://pbs.twimg.com/profile_images/1411596394465357824/jXPwTPfL_400x400.jpg'),
 (3, 'TheUltimateStudent', '$2b$10$RuQZFHQMN19vC6l8/pC52umEPWli0B4S.L22a.iIS8lyXYxQVC6cK', 'ultimatestudent@gmai.com', 'https://ych.commishes.com/image/download/657545/'),
-(4, 'Ecsedi Milán', '$2b$10$BEMgKsSr9pof/WyNp0kbleF2GGmvOWlYea2BkgY3xpsQm/inkOWO6', 'milan200314@gmail.com', 'https://www.freeiconspng.com/thumbs/profile-icon-png/am-a-19-year-old-multimedia-artist-student-from-manila--21.png'),
-(5, 'asd', '$2b$10$4/Rm4ztImPore29pOTVEIO26f31AFxlN/kJx6luY9tg17cYV7qs9W', 'asd@gmail.com', 'https://i.pinimg.com/236x/28/c5/49/28c54966142ad9b4872a6a25564f6f75.jpg'),
-(6, 'HEHEHEHA', '$2b$10$GZ8Y3vSFz70BJoJMFvPZmOqvHlNRwtnvhqt33i5a5U8pQ1a407TdW', 'cocroyal@freemail.hu', 'https://cdn.britannica.com/58/129958-050-C3FE2DD2/Adolf-Hitler-1933.jpg'),
-(7, 'gettoKanari', '$2b$10$UezvRp.IlvhdCUNMPKMP2eu84YuugZCVJDCZSiX5Nat/QHTs3Zx7u', 'aaa@example.com', 'https://ichef.bbci.co.uk/news/976/cpsprodpb/AFE8/production/_96723054_0d6ac4ea-ab1b-4700-ada9-4632cbea4908.jpg');
+(5, 'asd', '$2b$10$4/Rm4ztImPore29pOTVEIO26f31AFxlN/kJx6luY9tg17cYV7qs9W', 'asd@gmail.com', 'https://i.pinimg.com/236x/28/c5/49/28c54966142ad9b4872a6a25564f6f75.jpg');
 
 --
 -- Indexek a kiírt táblákhoz
@@ -159,7 +154,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT a táblához `applied_user`
 --
 ALTER TABLE `applied_user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT a táblához `course`
@@ -171,7 +166,7 @@ ALTER TABLE `course`
 -- AUTO_INCREMENT a táblához `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- Megkötések a kiírt táblákhoz

@@ -1,0 +1,326 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "Graduation_project_Tests",
+    "dateExported": "2023-04-28T17:06:58.043Z",
+    "version": "1.1",
+    "folders": [
+        {
+            "_id": "ba0496ff-e9af-4ac0-8e86-599d57c0c69a",
+            "name": "auth",
+            "containerId": "",
+            "created": "2023-04-28T16:21:36.523Z",
+            "sortNum": 20000
+        },
+        {
+            "_id": "7c96b490-2501-41ea-a43e-1c11dfe0bef1",
+            "name": "course",
+            "containerId": "",
+            "created": "2023-04-28T16:21:55.718Z",
+            "sortNum": 30000
+        },
+        {
+            "_id": "e24c0051-2d61-4384-b751-8e48aecc27e6",
+            "name": "appliedUser",
+            "containerId": "",
+            "created": "2023-04-28T16:22:22.620Z",
+            "sortNum": 50000
+        },
+        {
+            "_id": "a7b1847a-188d-48b4-be55-261dcaa3536b",
+            "name": "user",
+            "containerId": "",
+            "created": "2023-04-28T16:22:33.982Z",
+            "sortNum": 60000
+        }
+    ],
+    "requests": [
+        {
+            "_id": "0d0f8176-3e3d-45e5-8163-7528e97f3ffb",
+            "colId": "dcb9e00b-1bac-445b-a38b-30b6fcc6648c",
+            "containerId": "ba0496ff-e9af-4ac0-8e86-599d57c0c69a",
+            "name": "Login",
+            "url": "http://localhost:3000/auth/login",
+            "method": "POST",
+            "sortNum": 10000,
+            "created": "2023-03-16T13:03:36.848Z",
+            "modified": "2023-04-28T17:05:47.778Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"email\":\"dogelearn@gmail.com\",\n  \"password\":\"dogestudent\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "41435dec-49ef-4f11-8d2c-bcba8a4f388d",
+            "colId": "dcb9e00b-1bac-445b-a38b-30b6fcc6648c",
+            "containerId": "7c96b490-2501-41ea-a43e-1c11dfe0bef1",
+            "name": "Listing out all courses",
+            "url": "http://localhost:3000/course/list",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2023-03-17T10:38:59.529Z",
+            "modified": "2023-04-28T16:21:57.973Z",
+            "headers": [
+                {
+                    "name": "Authorization",
+                    "value": "Bearer e37180ff0b9fec3f6e6dff22f18619445fc01197cc380cfbd305fa2eb66ceaf0"
+                }
+            ],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "4ab7eeca-8032-4d31-bb4d-64176ee6063d",
+            "colId": "dcb9e00b-1bac-445b-a38b-30b6fcc6648c",
+            "containerId": "e24c0051-2d61-4384-b751-8e48aecc27e6",
+            "name": "joining on course",
+            "url": "http://localhost:3000/applied-user/join",
+            "method": "POST",
+            "sortNum": 10000,
+            "created": "2023-03-31T21:48:41.738Z",
+            "modified": "2023-04-28T16:22:40.664Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"id\": 1\n}",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "a353c8b0413326aadc9813ad9e44b9791e4b792d14225c6b7398e15de7db3a71"
+            },
+            "tests": []
+        },
+        {
+            "_id": "79a0b391-fc10-4a74-971f-72c99dcc3def",
+            "colId": "dcb9e00b-1bac-445b-a38b-30b6fcc6648c",
+            "containerId": "ba0496ff-e9af-4ac0-8e86-599d57c0c69a",
+            "name": "logout",
+            "url": "http://localhost:3000/auth/logout",
+            "method": "DELETE",
+            "sortNum": 20000,
+            "created": "2023-04-01T11:53:28.827Z",
+            "modified": "2023-04-28T16:21:40.698Z",
+            "headers": [
+                {
+                    "name": "Authorization",
+                    "value": "Bearer a48e2f55e49a3917db368f827251939aa9682b55e9500d05e927e3ef780cf74e"
+                }
+            ],
+            "params": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "a353c8b0413326aadc9813ad9e44b9791e4b792d14225c6b7398e15de7db3a71"
+            },
+            "tests": []
+        },
+        {
+            "_id": "91a0a2d1-211c-4d31-b473-f131a5a8036b",
+            "colId": "dcb9e00b-1bac-445b-a38b-30b6fcc6648c",
+            "containerId": "7c96b490-2501-41ea-a43e-1c11dfe0bef1",
+            "name": "Creates a course",
+            "url": "http://localhost:3000/course/create",
+            "method": "POST",
+            "sortNum": 30000,
+            "created": "2023-04-28T16:34:26.566Z",
+            "modified": "2023-04-28T16:34:44.874Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{   \"name\": \"Kurzus név példa\",\n    \"description\": \"Példa leírás, tömören. Mit kell tudni róla, milyen előtudás szükséges stb.\",\n    \"cphoto\": \"https://gradepowerlearning.com/wp-content/uploads/2018/09/how-to-use-self-study-860x420.jpeg\",\n    \"subject\": \"Példa tantárgy\",\n    \"topic\": \"Példa téma\",\n    \"details\": \"Kurzus részletes leírása, akár a tömören megfogalmazott leírást itt ki lehet fejteni, vagy új információval el látni a felhasználót\",\n    \"file_url\": \"https://docs.google.com/document/d/186VSv1nWwZskkwTKggLazVduWl-FON6MsdN0tKHhmXc/edit?usp=sharing\",\n    \"deadline\": \"2023.08.03\"\n  }",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "00e262b3-2145-4816-9a65-85db92c0a169",
+            "colId": "dcb9e00b-1bac-445b-a38b-30b6fcc6648c",
+            "containerId": "7c96b490-2501-41ea-a43e-1c11dfe0bef1",
+            "name": "Gives back a course by ID",
+            "url": "http://localhost:3000/course/search/1",
+            "method": "GET",
+            "sortNum": 40000,
+            "created": "2023-04-28T16:37:08.247Z",
+            "modified": "2023-04-28T16:37:08.247Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "d2245d88-0f85-48db-a38a-8f9d08c443fb",
+            "colId": "dcb9e00b-1bac-445b-a38b-30b6fcc6648c",
+            "containerId": "7c96b490-2501-41ea-a43e-1c11dfe0bef1",
+            "name": "Updates a course by ID",
+            "url": "http://localhost:3000/course/update/1",
+            "method": "PATCH",
+            "sortNum": 50000,
+            "created": "2023-04-28T16:40:22.645Z",
+            "modified": "2023-04-28T16:40:22.645Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n    \"name\": \"Gombák és a környezeti hatásai\",\n    \"description\": \"Megismerkedhetsz a természetben elhelyezkedő gombákkal, az erdőre kifejtett hatásaival és a megfelelő felhasználásával a kurzusunkon\",\n    \"cphoto\": \"\",\n    \"subject\": \"Környezet ismeret\",\n    \"topic\": \"Gombák, és kifejetett hatásai\",\n    \"details\": \"\",\n    \"file_url\": \"https://drive.google.com/drive/folders/1a_MnaL7384GA41VWQ9u9jShTztLbORW3?usp=sharing\",\n    \"deadline\": \"2023.10.01\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "109efc40-d652-4bf4-8a07-9640e2a359d5",
+            "colId": "dcb9e00b-1bac-445b-a38b-30b6fcc6648c",
+            "containerId": "7c96b490-2501-41ea-a43e-1c11dfe0bef1",
+            "name": "Deletes a course by ID",
+            "url": "http://localhost:3000/course/delete/1",
+            "method": "DELETE",
+            "sortNum": 60000,
+            "created": "2023-04-28T16:41:06.761Z",
+            "modified": "2023-04-28T16:41:06.761Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "32883b65-b1bb-4343-95fe-f4481e54fdef",
+            "colId": "dcb9e00b-1bac-445b-a38b-30b6fcc6648c",
+            "containerId": "a7b1847a-188d-48b4-be55-261dcaa3536b",
+            "name": "Register a user",
+            "url": "http://localhost:3000/user/register",
+            "method": "POST",
+            "sortNum": 70000,
+            "created": "2023-04-28T16:45:19.572Z",
+            "modified": "2023-04-28T16:45:19.572Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n    \"username\": \"Példa név\",\n    \"password\": \"PeldaJelszo\",\n    \"email\": \"pelda@gmail.com\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "4d6cb44a-5cd4-4441-bbc2-15aa4e2ecd26",
+            "colId": "dcb9e00b-1bac-445b-a38b-30b6fcc6648c",
+            "containerId": "a7b1847a-188d-48b4-be55-261dcaa3536b",
+            "name": "Listing out all user",
+            "url": "http://localhost:3000/user/list",
+            "method": "GET",
+            "sortNum": 80000,
+            "created": "2023-04-28T16:45:59.581Z",
+            "modified": "2023-04-28T16:45:59.581Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "175bc3a0-e5cc-4cb8-9729-aa9caccef72d",
+            "colId": "dcb9e00b-1bac-445b-a38b-30b6fcc6648c",
+            "containerId": "a7b1847a-188d-48b4-be55-261dcaa3536b",
+            "name": "Deletes a user by ID",
+            "url": "http://localhost:3000/user/delete/1",
+            "method": "DELETE",
+            "sortNum": 90000,
+            "created": "2023-04-28T16:47:55.143Z",
+            "modified": "2023-04-28T16:47:55.143Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "8fc30777-8f02-4892-a1ea-c9404bd0618f",
+            "colId": "dcb9e00b-1bac-445b-a38b-30b6fcc6648c",
+            "containerId": "a7b1847a-188d-48b4-be55-261dcaa3536b",
+            "name": "Gives back the user's profile data",
+            "url": "http://localhost:3000/user/profile",
+            "method": "GET",
+            "sortNum": 100000,
+            "created": "2023-04-28T16:49:59.083Z",
+            "modified": "2023-04-28T16:49:59.083Z",
+            "headers": [],
+            "params": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "a353c8b0413326aadc9813ad9e44b9791e4b792d14225c6b7398e15de7db3a71"
+            },
+            "tests": []
+        },
+        {
+            "_id": "46839a2c-2b0e-4980-9cb8-61238968e60d",
+            "colId": "dcb9e00b-1bac-445b-a38b-30b6fcc6648c",
+            "containerId": "a7b1847a-188d-48b4-be55-261dcaa3536b",
+            "name": "Updates user's profile picture",
+            "url": "http://localhost:3000/user/updateProfile",
+            "method": "PATCH",
+            "sortNum": 110000,
+            "created": "2023-04-28T16:52:30.513Z",
+            "modified": "2023-04-28T16:52:30.513Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"profile_pic\":\"https://i.pinimg.com/236x/28/c5/49/28c54966142ad9b4872a6a25564f6f75.jpg\"\n}",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "a353c8b0413326aadc9813ad9e44b9791e4b792d14225c6b7398e15de7db3a71"
+            },
+            "tests": []
+        },
+        {
+            "_id": "19c0a7f3-36cd-46a5-bf97-4135c275fa77",
+            "colId": "dcb9e00b-1bac-445b-a38b-30b6fcc6648c",
+            "containerId": "e24c0051-2d61-4384-b751-8e48aecc27e6",
+            "name": "Listing out all data from appliedUser table",
+            "url": "http://localhost:3000/applied-user/list",
+            "method": "GET",
+            "sortNum": 120000,
+            "created": "2023-04-28T16:55:52.695Z",
+            "modified": "2023-04-28T16:57:00.828Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "b9d1eb30-cb46-45a7-bc70-a4550ec5e576",
+            "colId": "dcb9e00b-1bac-445b-a38b-30b6fcc6648c",
+            "containerId": "e24c0051-2d61-4384-b751-8e48aecc27e6",
+            "name": "Checks if the user is already joined on a Course by ID",
+            "url": "http://localhost:3000/applied-user/isJoined/1",
+            "method": "GET",
+            "sortNum": 130000,
+            "created": "2023-04-28T16:57:50.423Z",
+            "modified": "2023-04-28T16:57:50.423Z",
+            "headers": [],
+            "params": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "a353c8b0413326aadc9813ad9e44b9791e4b792d14225c6b7398e15de7db3a71"
+            },
+            "tests": []
+        },
+        {
+            "_id": "a43c71f6-f006-4f76-bcf9-b91ee42e446a",
+            "colId": "dcb9e00b-1bac-445b-a38b-30b6fcc6648c",
+            "containerId": "e24c0051-2d61-4384-b751-8e48aecc27e6",
+            "name": "Gets the user's all courses",
+            "url": "http://localhost:3000/applied-user",
+            "method": "GET",
+            "sortNum": 140000,
+            "created": "2023-04-28T16:59:38.766Z",
+            "modified": "2023-04-28T16:59:38.766Z",
+            "headers": [],
+            "params": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "a353c8b0413326aadc9813ad9e44b9791e4b792d14225c6b7398e15de7db3a71"
+            },
+            "tests": []
+        }
+    ]
+}

@@ -4,7 +4,7 @@
 
 # Description
 
-A backend application coded in Nest.js, made for our graduation projects which is a course learning multiplatform application.
+Gritos backend application coded in Nest.js, made for our graduation projects which is a course learning multiplatform application.
 
 ## Requirements
 -NodeJS 18.16(LTS) or higher <br>
@@ -20,10 +20,10 @@ A backend application coded in Nest.js, made for our graduation projects which i
 ## Running the app
 
 ```bash
-# usual mode
+# development mode
 $ npm run start
 
-# development mode
+# dev watch mode
 $ npm run start:dev
 
 # production mode
@@ -46,19 +46,20 @@ Rename your .env.example file and change it if necessary
  DB_PORT=              #the database will listen on this port, if its empty, the default port is 3306(My SQL default port)
  DB_USERNAME=root      #username for the database
  DB_PASSWORD=          #password for the database
- DB_DATABASE=course_db #database name, change it if its necessary for your own
+ DB_DATABASE=course_db #database name, change it if its necessary for your own 
 ```
 
+Recommended to use the course_db.sql dump, For examples and its fully configured 
 
 
 
 ## Documentation
 
-you can find the API documentation on /doc endpoint. <br>
-Open the [./docs/index.html](./docs/index.html) for the developer documentation<br>
+you can find the API documentation on http://localhost:3000/doc endpoint. <br>
+Open the [/docs/index.html](./docs/index.html) for the developer documentation<br>
 Written in hungarian
 
-Recommended to use Thunder Client for checking the endpoints, if you using Visual Studio:Code
+Import the [thunder-collection_Graduation_project_Tests](./thunder-collection_Graduation_project_Tests) into ThunderClient to test the endpoints
 
 ## Database model
 
