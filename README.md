@@ -1,5 +1,5 @@
 <p align="center">
- <img src="../src/gritos_logo.png">
+ <img src="./gritos_logo.png">
 </p>
 
 # Description
